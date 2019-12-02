@@ -30,3 +30,6 @@ Connect to Telnet Servers
 ## cipher /w:
 Permanently Delete and Overwrite a Directory
 
+## netstat -an
+List Network Connections and Ports
+
