@@ -48,3 +48,5 @@ Creates user Svet and sets the password to 1234
 ## net localgroup Administrators Svet /add
 Adds user to group
 
+## WMIC USERACCOUNT WHERE Name='Svet' SET PasswordExpires=FALSE
+Sets the password for Svet to never expire
