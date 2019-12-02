@@ -24,3 +24,5 @@ Shutdown Shortcuts
 ## sfc /scannow
 Scan System Files for Problems
 
+## telnet
+Connect to Telnet Servers
