@@ -9,10 +9,10 @@ Detailed IP Address
 ## ipconfig /flushdns
 Flush Your DNS Resolver Cache
 
-## ping <*address*>
+## ping *example.org*
 Send packets to that address
 
-## tracert
+## tracert *example.org*
 Traces the route it takes for a packet to reach a destination
 
 ## shutdown
@@ -33,3 +33,5 @@ Permanently Delete and Overwrite a Directory
 ## netstat -an
 List Network Connections and Ports
 
+## nslookup *example.org*
+Find the IP Address Associated With a Domain
