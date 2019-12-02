@@ -50,3 +50,6 @@ Adds user to group
 
 ## WMIC USERACCOUNT WHERE Name='Svet' SET PasswordExpires=FALSE
 Sets the password for Svet to never expire
+
+## winver
+Find the Windows version
