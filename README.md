@@ -20,3 +20,7 @@ Traces the route it takes for a packet to reach a destination
 shutdown /r /t 0 - immediate restart<br>
 shutdown /r /o - restarts the computer into advanced options/<br>
 Shutdown Shortcuts
+
+## sfc /scannow
+Scan System Files for Problems
+
