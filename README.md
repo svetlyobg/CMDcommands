@@ -1,4 +1,7 @@
 # usefulCMDcommands
 
 ## ipconfig
-uicklyuickly Find Your IP Address 
+Quickly Find Your IP Address
+
+## ipconfig /all
+Detailed IP Address
