@@ -35,3 +35,6 @@ List Network Connections and Ports
 
 ## nslookup *example.org*
 Find the IP Address Associated With a Domain
+
+## whoami
+Displays the current domain and user name
