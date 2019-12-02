@@ -16,6 +16,6 @@ Send packets to that address
 Traces the route it takes for a packet to reach a destination
 
 ## shutdown
-*shutdown /s /t 0 - immediate shutdown
-shutdown /r /t 0 - immediate restart*
+*shutdown /s /t 0 - immediate shutdown<br>
+shutdown /r /t 0 - immediate restart*<br>
 Shutdown Shortcuts
