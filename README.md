@@ -44,3 +44,7 @@ Shows users on the computer (Network places wizard)
 
 ## net user Svet 1234 /ADD
 Creates user Svet and sets the password to 1234
+
+## net localgroup administrators John /add
+Adds user to group
+
