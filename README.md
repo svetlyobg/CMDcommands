@@ -26,3 +26,7 @@ Scan System Files for Problems
 
 ## telnet
 Connect to Telnet Servers
+
+## cipher /w:
+Permanently Delete and Overwrite a Directory
+
