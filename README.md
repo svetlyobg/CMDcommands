@@ -41,3 +41,6 @@ Displays the current domain and user name
 
 ## netplwiz
 Shows users on the computer (Network places wizard)
+
+## net user Svet 1234 /ADD
+Creates user Svet and sets the password to 1234
