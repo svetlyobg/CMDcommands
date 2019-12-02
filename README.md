@@ -17,5 +17,6 @@ Traces the route it takes for a packet to reach a destination
 
 ## shutdown
 *shutdown /s /t 0 - immediate shutdown<br>
-shutdown /r /t 0 - immediate restart*<br>
+shutdown /r /t 0 - immediate restart<br>
+shutdown /r /o - restarts the computer into advanced options/<br>
 Shutdown Shortcuts
