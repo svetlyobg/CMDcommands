@@ -9,7 +9,8 @@ Detailed IP Address
 ## ipconfig /flushdns
 Flush Your DNS Resolver Cache
 
-## ping *address*
-send packets to that address
+## ping <*address*>
+Send packets to that address
 
-
+## tracert
+Traces the route it takes for a packet to reach a destination
