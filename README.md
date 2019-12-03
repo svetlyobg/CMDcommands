@@ -108,3 +108,7 @@ TaskList displays all running applications and services with their Process ID
 
 ## tasklist -svc
 Shows services related to each task use
+
+## tasklist -v
+Detailed task list
+
