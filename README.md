@@ -39,7 +39,7 @@ Traces the route it takes for a packet to reach a destination
 ## shutdown
 *shutdown /s /t 0 - immediate shutdown<br>
 shutdown /r /t 0 - immediate restart<br>
-shutdown /r /o - restarts the computer into advanced options/<br>
+shutdown /r /o - restarts the computer into advanced options<br>
 Shutdown Shortcuts
 
 ## sfc /scannow
@@ -74,3 +74,8 @@ Sets the password for Svet to never expire
 
 ## winver
 Find the Windows version
+
+## assoc
+Display or change the association between a file extension and a fileType
+
+
