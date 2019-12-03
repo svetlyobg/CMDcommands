@@ -24,6 +24,9 @@ Updates a host A/AAAA record within your active directory integrated DNS
 ## ipconfig /displaydns
 Displays the contents of the DNS Resolver Cache
 
+## netsh winsock reset
+Resetting Network Adapter (Winsock Reset)
+
 ## getmac
 Get mac addresses
 
