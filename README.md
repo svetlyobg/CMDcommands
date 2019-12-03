@@ -98,6 +98,7 @@ Control power settings, configure Hibernate/Standby modes.
 Turns on hibernation
 
 ## powercfg /hibernate off
+Turns off hibernation
 
 ## powercfg -a
 Lists all available PC power saving states
