@@ -15,6 +15,9 @@ Renew IP Address
 ## ipconfig /release
 Release IP Address
 
+## ipconfig /registerdns
+Updates a host A/AAAA record within your active directory integrated DNS
+
 ## getmac
 Get mac addresses
 
