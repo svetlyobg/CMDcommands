@@ -90,3 +90,7 @@ Optain more information
 
 ## systeminfo
 List system configuration
+
+## powercfg
+Control power settings, configure Hibernate/Standby modes.
+
