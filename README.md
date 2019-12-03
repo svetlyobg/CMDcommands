@@ -97,3 +97,4 @@ powercfg /hibernate on
 powercfg /hibernate off
 powercfg -a
 Lists all available PC power saving states
+powercfg /energy
