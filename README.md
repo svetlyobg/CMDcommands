@@ -85,5 +85,5 @@ Lists all installed device drivers and their properties
 driverquery -v
 Optain more information
 
-
-
+## systeminfo
+List system configuration
