@@ -36,6 +36,9 @@ Send packets to that address
 ## tracert *hostname or IP address*
 Traces the route it takes for a packet to reach a destination
 
+## pathping
+Trace route and provide network latency and packet loss for each router and link in the path. Combines the functionality of PING and TRACERT.
+
 ## shutdown
 *shutdown /s /t 0 - immediate shutdown<br>
 shutdown /r /t 0 - immediate restart<br>
