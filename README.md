@@ -77,5 +77,5 @@ Find the Windows version
 
 ## assoc
 Display or change the association between a file extension and a fileType
-
+assoc .doc=word
 
