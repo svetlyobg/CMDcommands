@@ -93,4 +93,6 @@ List system configuration
 
 ## powercfg
 Control power settings, configure Hibernate/Standby modes.
+powercfg /hibernate on
+powercfg /hibernate off
 
