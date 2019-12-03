@@ -50,6 +50,7 @@ Connect to Telnet Servers
 
 ## cipher /w:
 Permanently Delete and Overwrite a Directory
+cipher /w:C:\Users\svetlozar\Desktop\testDel
 
 ## netstat -an
 List Network Connections and Ports
