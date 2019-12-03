@@ -9,6 +9,9 @@ Detailed IP Address
 ## ipconfig /flushdns
 Flush Your DNS Resolver Cache
 
+## ipconfig /renew
+Renew IP Address
+
 ## ping *hostname or IP address*
 Send packets to that address
 
