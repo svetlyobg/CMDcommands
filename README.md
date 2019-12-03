@@ -120,3 +120,8 @@ Locates .dll files
 
 ## taskkill -pid 0000
 Kills the task with process ID of 0000
+
+# PowerShell
+
+## Get-ChildItem -Path '.\' -Recurse | Unblock-File
+Unblocks blocked file in the current directory and it's childrens
