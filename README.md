@@ -9,7 +9,7 @@ Detailed IP Address
 ## ipconfig /flushdns
 Flush Your DNS Resolver Cache
 
-## ping *example.org*
+## ping *hostname or IP address*
 Send packets to that address
 
 ## tracert *example.org*
