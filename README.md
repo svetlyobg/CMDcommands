@@ -12,7 +12,7 @@ Flush Your DNS Resolver Cache
 ## ping *hostname or IP address*
 Send packets to that address
 
-## tracert *example.org*
+## tracert *hostname or IP address*
 Traces the route it takes for a packet to reach a destination
 
 ## shutdown
