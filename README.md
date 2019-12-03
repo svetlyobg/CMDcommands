@@ -101,9 +101,10 @@ Control power settings, configure Hibernate/Standby modes.
 Lists all available PC power saving states
 
 ## powercfg /energy
-Generates 
+Generates power consumption report
 
 ## tasklist
 TaskList displays all running applications and services with their Process ID
 
 ## tasklist -svc
+Shows services related to each task use
