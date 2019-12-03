@@ -115,3 +115,5 @@ Shows services related to each task use
 ## tasklist -v
 Detailed task list
 
+## tasklist -m
+Locates .dll files
