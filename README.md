@@ -15,8 +15,14 @@ Renew IP Address
 ## ipconfig /release
 Release IP Address
 
+## ipconfig /flushdns
+Flush Your DNS Resolver Cache
+
 ## ipconfig /registerdns
 Updates a host A/AAAA record within your active directory integrated DNS
+
+## ipconfig /displaydns
+Displays the contents of the DNS Resolver Cache
 
 ## getmac
 Get mac addresses
