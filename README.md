@@ -95,4 +95,5 @@ List system configuration
 Control power settings, configure Hibernate/Standby modes.
 powercfg /hibernate on
 powercfg /hibernate off
-
+powercfg -a
+Lists all available PC power saving states
