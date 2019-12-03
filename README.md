@@ -80,3 +80,5 @@ Find the Windows version
 Display or change the association between a file extension and a fileType
 assoc .doc=word
 
+## Driverquery
+Lists all installed device drivers and their properties
