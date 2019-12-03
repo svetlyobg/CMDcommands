@@ -117,3 +117,6 @@ Detailed task list
 
 ## tasklist -m
 Locates .dll files
+
+## taskkill -pid 0000
+Kills the task with process ID of 0000
