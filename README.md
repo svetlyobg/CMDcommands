@@ -98,3 +98,6 @@ powercfg /hibernate off
 powercfg -a
 Lists all available PC power saving states
 powercfg /energy
+
+## tasklist
+TaskList displays all running applications and services with their Process ID
