@@ -12,6 +12,9 @@ Flush Your DNS Resolver Cache
 ## ipconfig /renew
 Renew IP Address
 
+## ipconfig /release
+Release IP Address
+
 ## ping *hostname or IP address*
 Send packets to that address
 
