@@ -15,6 +15,9 @@ Renew IP Address
 ## ipconfig /release
 Release IP Address
 
+## getmac
+Get mac addresses
+
 ## ping *hostname or IP address*
 Send packets to that address
 
