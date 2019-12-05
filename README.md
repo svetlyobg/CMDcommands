@@ -125,3 +125,9 @@ Kills the task with process ID of 0000
 
 ## Get-ChildItem -Path '.\' -Recurse | Unblock-File
 Unblocks blocked file in the current directory and it's childrens
+
+# Batch
+
+## check.NET version
+@echo off
+cmd /k reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\full" /v version
