@@ -121,6 +121,13 @@ Locates .dll files
 ## taskkill -pid 0000
 Kills the task with process ID of 0000
 
+## MRT.exe
+Microsoft Windows Malicious Software Removal Tool
+
+mrt /? - help
+
+mrt f - fore full scan
+
 # PowerShell
 
 ## Get-ChildItem -Path '.\' -Recurse | Unblock-File
