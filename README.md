@@ -126,7 +126,7 @@ Microsoft Windows Malicious Software Removal Tool
 
 mrt /? - help
 
-mrt /f - fore full scan
+mrt /f - force full scan
 
 # PowerShell
 
