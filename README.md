@@ -94,6 +94,9 @@ Optain more information
 ## systeminfo
 List system configuration
 
+## perfmon /report
+Generate System Performance Report
+
 ## powercfg
 Control power settings, configure Hibernate/Standby modes.
 
