@@ -138,3 +138,7 @@ Unblocks blocked file in the current directory and it's childrens
 ## check.NET version
 @echo off
 cmd /k reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\full" /v version
+
+## recycle bin path in Windows 10
+
+C:\$Recycle.Bin
