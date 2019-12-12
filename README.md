@@ -40,13 +40,16 @@ Traces the route it takes for a packet to reach a destination
 Trace route and provide network latency and packet loss for each router and link in the path. Combines the functionality of PING and TRACERT.
 
 ## shutdown
-*shutdown /s /t 0 - immediate shutdown<br>
+shutdown /s /t 0 - immediate shutdown<br>
 shutdown /r /t 0 - immediate restart<br>
 shutdown /r /o - restarts the computer into advanced options<br>
 Shutdown Shortcuts
 
 ## sfc /scannow
 Scan System Files for Problems
+
+## DISM.exe /Online /Cleanup-image /Restorehealth
+Fix Windows Update errors
 
 ## telnet
 Connect to Telnet Servers
@@ -90,6 +93,9 @@ Optain more information
 
 ## systeminfo
 List system configuration
+
+## perfmon /report
+Generate System Performance Report
 
 ## powercfg
 Control power settings, configure Hibernate/Standby modes.
