@@ -48,6 +48,9 @@ Shutdown Shortcuts
 ## sfc /scannow
 Scan System Files for Problems
 
+## chkdsk
+CHKDSK is a Windows utility that can check the integrity of your hard disk and can fix various file system errors.
+
 ## DISM.exe /Online /Cleanup-image /Restorehealth
 Fix Windows Update errors
 
