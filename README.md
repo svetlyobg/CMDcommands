@@ -45,11 +45,11 @@ shutdown /r /t 0 - immediate restart<br>
 shutdown /r /o - restarts the computer into advanced options<br>
 Shutdown Shortcuts
 
-## sfc /scannow
-Scan System Files for Problems
-
 ## chkdsk
 CHKDSK is a Windows utility that can check the integrity of your hard disk and can fix various file system errors.
+
+## sfc /scannow
+Scan System Files for Problems
 
 ## DISM.exe /Online /Cleanup-image /Restorehealth
 Fix Windows Update errors
