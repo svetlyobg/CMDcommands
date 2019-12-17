@@ -137,6 +137,9 @@ mrt /? - help
 
 mrt /f - force full scan
 
+## Get Windows Key
+wmic path softwarelicensingservice get OA3xOriginalProductKey
+
 # PowerShell
 
 ## Get-ChildItem -Path '.\' -Recurse | Unblock-File
