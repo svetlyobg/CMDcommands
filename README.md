@@ -157,3 +157,8 @@ C:\$Recycle.Bin
 
 ## Get Windows 10 Key
 powershell “(Get-WmiObject -query ‘select * from SoftwareLicensingService’).OA3xOriginalProductKey”
+
+## Start/Stop Microsoft Veeam Service powershell
+
+Get-service -displayname veeam* | stop-service 
+Get-service -displayname veeam* | start-service 
