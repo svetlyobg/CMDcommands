@@ -148,6 +148,10 @@ wmic path softwarelicensingservice get OA3xOriginalProductKey
 ## Get-ChildItem -Path '.\' -Recurse | Unblock-File
 Unblocks blocked file in the current directory and it's childrens
 
+## slmgr
+Software Licensing Management Tool
+slmgr /dli - checks part of the product key
+
 # Batch
 
 ## check.NET version
@@ -163,5 +167,5 @@ powershell “(Get-WmiObject -query ‘select * from SoftwareLicensingService’
 
 ## Start/Stop Microsoft Veeam Service powershell
 
-Get-service -displayname veeam* | stop-service 
-Get-service -displayname veeam* | start-service 
+Get-service -displayname veeam* | stop-service
+Get-service -displayname veeam* | start-service
