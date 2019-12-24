@@ -143,6 +143,10 @@ mrt /f - force full scan
 ## Get Windows Key
 wmic path softwarelicensingservice get OA3xOriginalProductKey
 
+## Portqry
+troubleshoot TCP/IP connectivity issues
+[Download PortQryV2.exe, a command-line utility that you can use to help troubleshoot TCP/IP connectivity issues. Portqry.exe runs on Windows 2000-based computers](https://www.microsoft.com/en-us/download/details.aspx?id=17148)
+
 # PowerShell
 
 ## Get-ChildItem -Path '.\' -Recurse | Unblock-File
