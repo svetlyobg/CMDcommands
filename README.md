@@ -58,7 +58,7 @@ Determine if there are any corruptions inside the local image. However, the opti
 Alternatively, you can run DISM with the ScanHealth option to perform a more advanced scan to check if the Windows 10 image has any problems
 
 ## DISM.exe /Online /Cleanup-image /Restorehealth
-Fix Windows Update errors
+Fix Windows Update errors - RestoreHealth option, which will run an advanced scan and repair any problems automatically.
 
 ## telnet
 Connect to Telnet Servers
