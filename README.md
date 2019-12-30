@@ -54,6 +54,8 @@ Scan System Files for Problems
 ## DISM /Online /Cleanup-Image /CheckHealth
 Determine if there are any corruptions inside the local image. However, the option won't perform any repairs.
 
+## DISM /Online /Cleanup-Image /ScanHealth
+Alternatively, you can run DISM with the ScanHealth option to perform a more advanced scan to check if the Windows 10 image has any problems
 
 ## DISM.exe /Online /Cleanup-image /Restorehealth
 Fix Windows Update errors
