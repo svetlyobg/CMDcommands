@@ -51,6 +51,10 @@ CHKDSK is a Windows utility that can check the integrity of your hard disk and c
 ## sfc /scannow
 Scan System Files for Problems
 
+## DISM /Online /Cleanup-Image /CheckHealth
+Determine if there are any corruptions inside the local image. However, the option won't perform any repairs.
+
+
 ## DISM.exe /Online /Cleanup-image /Restorehealth
 Fix Windows Update errors
 
