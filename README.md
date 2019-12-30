@@ -60,6 +60,9 @@ Alternatively, you can run DISM with the ScanHealth option to perform a more adv
 ## DISM.exe /Online /Cleanup-image /Restorehealth
 Fix Windows Update errors - RestoreHealth option, which will run an advanced scan and repair any problems automatically.
 
+## DISM /Online /Cleanup-Image /RestoreHealth /Source:repairSource\install.wim
+Fix image issues  using a DVD/USB with Windows 10
+
 ## telnet
 Connect to Telnet Servers
 
