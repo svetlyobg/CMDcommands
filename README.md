@@ -97,6 +97,9 @@ net user Svet 1234 /ADD && net localgroup Administrators Svet /add && WMIC USERA
 ## winver
 Find the Windows version
 
+## gpupdate /force
+Force Update Group Policy
+
 ## assoc
 Display or change the association between a file extension and a fileType
 assoc .doc=word
