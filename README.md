@@ -97,6 +97,12 @@ net user Svet 1234 /ADD && net localgroup Administrators Svet /add && WMIC USERA
 ## winver
 Find the Windows version
 
+## devmgmt.msc 
+Device manager
+
+## taskmgr
+Task manager
+
 ## gpupdate /force
 Force Update Group Policy
 
