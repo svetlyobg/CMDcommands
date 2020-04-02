@@ -85,6 +85,9 @@ cipher /w:C:\Users\svetlozar\Desktop\testDel
 ## netstat -an
 List Network Connections and Ports
 
+## nbtstat -a *IP or host*
+Rsetrieve the mac addressses for a remote computer
+
 ## nslookup *example.org*
 Find the IP Address Associated With a Domain
 
