@@ -189,6 +189,9 @@ troubleshoot TCP/IP connectivity issues
 ## tpm.msc
 Check for the Trusted Platform Module
 
+## control panel
+Opens Control Panel
+
 # PowerShell
 
 ## Get-ChildItem -Path '.\' -Recurse | Unblock-File
