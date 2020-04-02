@@ -198,6 +198,9 @@ Computer Management
 ## taskmgr
 Task manager
 
+## rasphone
+Create/connect to a network
+
 # PowerShell
 
 ## Get-ChildItem -Path '.\' -Recurse | Unblock-File
