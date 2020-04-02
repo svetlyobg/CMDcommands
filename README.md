@@ -195,6 +195,9 @@ Opens Control Panel
 ## compmgmt
 Computer Management
 
+## taskmgr
+Task manager
+
 # PowerShell
 
 ## Get-ChildItem -Path '.\' -Recurse | Unblock-File
