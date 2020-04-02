@@ -33,6 +33,9 @@ Get mac addresses
 ## ping *hostname or IP address*
 Send packets to that address
 
+## ping -a *IP address*
+Send packets to that address and returns the hostname
+
 ## tracert *hostname or IP address*
 Traces the route it takes for a packet to reach a destination
 
