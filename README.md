@@ -186,6 +186,9 @@ wmic path softwarelicensingservice get OA3xOriginalProductKey
 troubleshoot TCP/IP connectivity issues
 [Download PortQryV2.exe, a command-line utility that you can use to help troubleshoot TCP/IP connectivity issues. Portqry.exe runs on Windows 2000-based computers](https://www.microsoft.com/en-us/download/details.aspx?id=17148)
 
+## tpm.msc
+Check for the Trusted Platform Module
+
 # PowerShell
 
 ## Get-ChildItem -Path '.\' -Recurse | Unblock-File
