@@ -36,6 +36,9 @@ Send packets to that address
 ## ping -a *IP address*
 Send packets to that address and returns the hostname
 
+## ping *hostname* -4
+Send packets to that hostname and returns the IPv4 address
+
 ## tracert *hostname or IP address*
 Traces the route it takes for a packet to reach a destination
 
