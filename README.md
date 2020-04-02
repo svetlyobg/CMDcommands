@@ -82,6 +82,9 @@ Connect to Telnet Servers
 Permanently Delete and Overwrite a Directory
 cipher /w:C:\Users\svetlozar\Desktop\testDel
 
+## rmdir *Folder Path* /s
+Removes directory even if it is not empty
+
 ## netstat -an
 List Network Connections and Ports
 
