@@ -192,6 +192,9 @@ Check for the Trusted Platform Module
 ## control panel
 Opens Control Panel
 
+## compmgmt
+Computer Management
+
 # PowerShell
 
 ## Get-ChildItem -Path '.\' -Recurse | Unblock-File
