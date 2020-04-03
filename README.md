@@ -112,6 +112,9 @@ Sets the password for Svet to never expire
 ## Create admin user and password and set it to never expire
 net user Svet 1234 /ADD && net localgroup Administrators Svet /add && WMIC USERACCOUNT WHERE Name='Svet' SET PasswordExpires=FALSE
 
+## Find Hard Disk Serial Number
+wmic diskdrive get Name, Manufacturer, Model, InterfaceType, MediaType, SerialNumber.
+
 ## winver
 Find the Windows version
 
