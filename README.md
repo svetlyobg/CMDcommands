@@ -97,6 +97,9 @@ Find the IP Address Associated With a Domain
 ## whoami
 Displays the current domain and user name
 
+## hostname
+Displays the computer's hostname
+
 ## netplwiz
 Shows users on the computer (Network places wizard)
 
