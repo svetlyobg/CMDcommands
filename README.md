@@ -216,16 +216,6 @@ Unblocks blocked file in the current directory and it's childrens
 Software Licensing Management Tool
 slmgr /dli - checks part of the product key
 
-# Batch
-
-## check.NET version
-@echo off
-cmd /k reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\full" /v version
-
-## recycle bin path in Windows 10
-
-C:\$Recycle.Bin
-
 ## Get Windows 10 Key
 powershell “(Get-WmiObject -query ‘select * from SoftwareLicensingService’).OA3xOriginalProductKey”
 
@@ -236,3 +226,14 @@ Get-service -displayname veeam* | start-service
 
 ## .\HOSTNAME.exe
 Displays the computer's hostname
+
+# Batch
+
+## check.NET version
+@echo off
+cmd /k reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\full" /v version
+
+# Other
+
+## recycle bin path in Windows 10
+C:\$Recycle.Bin
