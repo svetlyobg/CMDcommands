@@ -233,3 +233,6 @@ powershell “(Get-WmiObject -query ‘select * from SoftwareLicensingService’
 
 Get-service -displayname veeam* | stop-service
 Get-service -displayname veeam* | start-service
+
+## .\HOSTNAME.exe
+Displays the computer's hostname
