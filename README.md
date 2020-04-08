@@ -60,6 +60,12 @@ Shutdown Shortcuts
 ## chkdsk
 CHKDSK is a Windows utility that can check the integrity of your hard disk and can fix various file system errors.
 
+## chkdsk c: /f /r /v
+/f - fix errors
+/r - relocate bad sectors
+/v - displays the path of every file
+
+
 ## sfc /scannow
 Scan System Files for Problems
 
