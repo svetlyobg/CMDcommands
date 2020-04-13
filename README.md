@@ -211,7 +211,11 @@ Computer Management
 Task manager
 
 ## rasphone
-Create/connect to a network
+Create/connect to a (VPN) network
+
+## mdsched.exe
+Run Windows Memory Diagnostic Tool
+
 
 # PowerShell
 
