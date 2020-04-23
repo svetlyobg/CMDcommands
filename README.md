@@ -216,6 +216,9 @@ Create/connect to a (VPN) network
 ## mdsched.exe
 Run Windows Memory Diagnostic Tool
 
+## Using Driver Verifier to identify issues with Windows drivers
+verifier.exe /standard /all
+
 
 # PowerShell
 
