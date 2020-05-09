@@ -1,7 +1,7 @@
 # usefulCMDcommands
 
 ## ipconfig
-Quickly Find Your IP Address
+Quickly Find Your local IP Address
 
 ## ipconfig /all
 Detailed IP Address
