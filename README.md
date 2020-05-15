@@ -254,7 +254,7 @@ C:\$Recycle.Bin
 # Exchange Console
 
 ## Check user email usage
-Get-MailboxStatistics "alex@propertyrescue.co.uk" | Select-Object -Property DisplayName,TotalitemSize
+Get-MailboxStatistics "*EmailAddress*" | Select-Object -Property DisplayName,TotalitemSize
 
 ## Check all user email usage
 
