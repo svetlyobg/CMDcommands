@@ -259,3 +259,7 @@ Get-MailboxStatistics "alex@propertyrescue.co.uk" | Select-Object -Property Disp
 ## Check all user email usage
 
 Get-Mailbox -ResultSize Unlimited | Get-MailboxStatistics | Sort-Object TotalItemSize -Descending | Select-Object DisplayName,TotalItemSize
+
+## Check Sent/Received emails
+
+Get-MessageTrackingLog -ResultSize Unlimited -Sender *EmailAddress* -Recipients *EmailAddress* | out-gridview 
