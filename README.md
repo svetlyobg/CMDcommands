@@ -250,3 +250,8 @@ cmd /k reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\
 
 ## recycle bin path in Windows 10
 C:\$Recycle.Bin
+
+# Exchange Console
+
+## Check user email usage
+Get-MailboxStatistics "alex@propertyrescue.co.uk" | Select-Object -Property DisplayName,TotalitemSize
