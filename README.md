@@ -127,7 +127,7 @@ wmic diskdrive get Name, Manufacturer, Model, InterfaceType, MediaType, SerialNu
 ## winver
 Find the Windows version
 
-## devmgmt.msc 
+## devmgmt.msc
 Device manager
 
 ## taskmgr
@@ -262,4 +262,8 @@ Get-Mailbox -ResultSize Unlimited | Get-MailboxStatistics | Sort-Object TotalIte
 
 ## Check Sent/Received emails
 
-Get-MessageTrackingLog -ResultSize Unlimited -Sender *EmailAddress* -Recipients *EmailAddress* | out-gridview 
+> Get-MessageTrackingLog -ResultSize Unlimited -Sender *EmailAddress* -Recipients *EmailAddress* | out-gridview
+
+## Export IIS websites
+
+> %windir%\system32\inetsrv\appcmd list site > c:\sites.xls
