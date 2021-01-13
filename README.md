@@ -267,3 +267,18 @@ Get-Mailbox -ResultSize Unlimited | Get-MailboxStatistics | Sort-Object TotalIte
 ## Export IIS websites
 
 > %windir%\system32\inetsrv\appcmd list site > c:\sites.xls
+
+## Enable GPedit in Windows 10 Home
+
+run this in cmd.exe as an admin:
+
+> pushd "%~dp0" 
+
+> dir /b %SystemRoot%\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum >List.txt 
+
+> dir /b %SystemRoot%\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum >>List.txt 
+
+> for /f %%i in ('findstr /i . List.txt 2^>nul') do dism /online /norestart /add-package:"%SystemRoot%\servicing\Packages\%%i" 
+
+> pause
+
