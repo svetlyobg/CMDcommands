@@ -240,6 +240,9 @@ Get-service -displayname veeam* | start-service
 ## .\HOSTNAME.exe
 Displays the computer's hostname
 
+## Check TCP-IP Listening port
+Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "PortNumber"
+
 # Batch
 
 ## check.NET version
