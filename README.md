@@ -247,6 +247,34 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\W
 Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "PortNumber" -Value 3423
 New-NetFirewallRule -DisplayName 'RDPPORTLatest' -Profile 'Public' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 3423
 
+## How to restart IIS Website and Application Pool
+
+```powershell
+$wap = Read-Host -Prompt 'Input the Web App Pool Name'
+Write-Host "`n$line"
+Write-Host "Next actions will be performed on App Pools and IIS websites that contain $wap in their name !!!" -ForegroundColor Yellow
+Write-Host "`n$line"
+
+Restart-WebAppPool -Name *$wap* -verbose
+#Stop-WebAppPool -Name *$wap* -verbose
+#Start-WebAppPool -Name *$wap* -verbose
+Write-Host "`n$line"
+Write-Host "App Pools that contain $wap were sucessfully restarted!" -ForegroundColor Green
+Write-Host "`n$line"
+
+
+Stop-Website *$wap* -Verbose
+Write-Host "`n$line"
+Write-Host "IIS Websites that contain $wap in their name were STOPPED !!!" -ForegroundColor RED
+Write-Host "`n$line"
+
+Start-Website *$wap* -Verbose
+Write-Host "`n$line"
+Write-Host "IIS Websites that contain $wap in their name were sucessfully started!" -ForegroundColor Green
+Write-Host "`n$line"
+
+```powershell
+
 # Batch
 
 ## check.NET version
