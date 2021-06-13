@@ -272,8 +272,7 @@ Start-Website *$wap* -Verbose
 Write-Host "`n$line"
 Write-Host "IIS Websites that contain $wap in their name were sucessfully started!" -ForegroundColor Green
 Write-Host "`n$line"
-
-```powershell
+```
 
 # Batch
 
