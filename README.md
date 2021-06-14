@@ -283,6 +283,22 @@ Start-Sleep -Seconds 5
 @echo off
 cmd /k reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\full" /v version
 
+## Automatically enable VPN for RDP and closes it on exit
+(put the .bat file in the same location as .rdp file)
+
+```bat
+@echo off
+
+:: Connecting to VPN...
+rasphone.exe -d  "ChangeMeVPN-NAME"
+
+echo Running RDP...
+"ChangeMeRDP-NAME.rdp"
+
+echo Finished - disconnecting from VPN...
+rasphone.exe -h "ChangeMeVPN-NAME"
+```
+
 # Other
 
 ## recycle bin path in Windows 10
