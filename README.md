@@ -284,6 +284,7 @@ Start-Sleep -Seconds 5
 cmd /k reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\full" /v version
 
 ## Automatically enable VPN for RDP and closes it on exit
+# Set up the VPN using rasphone.exe and save the user credentials
 (put the .bat file in the same location as .rdp file)
 
 ```bat
@@ -298,6 +299,7 @@ echo Running RDP...
 echo Finished - disconnecting from VPN...
 rasphone.exe -h "ChangeMeVPN-NAME"
 ```
+At the end, navigate to C:\Users\%username%\AppData\Roaming\Microsoft\Network\Connections\Pbk and edit the rasphone.pbk file by changing PreviewUserPw=0 from 1 to 0
 
 # Other
 
