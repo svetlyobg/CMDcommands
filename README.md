@@ -331,6 +331,8 @@ Get-Mailbox -ResultSize Unlimited | Get-MailboxStatistics | Sort-Object TotalIte
 
 > %windir%\system32\inetsrv\appcmd list site > c:\sites.xls
 
+> Get-WebBinding | ConvertTo-Csv | Out-File "C:\sites.csv"
+
 ## Enable GPedit in Windows 10 Home
 
 run this in cmd.exe as an admin:
