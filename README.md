@@ -347,3 +347,81 @@ run this in cmd.exe as an admin:
 
 > pause
 
+## Perform Hyper-V Planned Replication Failover and Failback via PowerShell
+
+```powershell
+Get-VM
+
+$vmname = Read-Host -Prompt "Choose a VM for Failover"
+
+$status = Get-VM -ComputerName Server2012 -Name $vmname | Select -ExpandProperty Status
+$state = Get-VM -ComputerName Server2012 -Name $vmname | Select -ExpandProperty State
+
+Write-Host Status is $status and State is $state
+
+if ( $status -like "Operating Normally" -and $status -like "Running")
+
+{
+    Write-Host Stopping $vmname now... -ForegroundColor Yellow
+    Stop-VM -ComputerName Server2012 -Name $vmname
+    Write-Host $vmname has been shutted down -ForegroundColor Green
+    Start-Sleep -Seconds 5
+}
+
+else
+
+{
+    Write-Host Please turn it off manually!!!
+    Start-Sleep -Seconds 5
+}
+
+#Fail Over Steps
+Get-VMReplication 
+
+Write-Host Preparing planned failover of the primary VM -ForegroundColor Yellow
+Start-VMFailover -Prepare -VMName $vmname -ComputerName Server2012
+Write-Host Preparing Completed -ForegroundColor Green
+
+Write-Host Failing over the Replica virtual machine -ForegroundColor Yellow
+Start-VMFailover -VMName $vmname -ComputerName DC
+Write-Host Failing over Completed -ForegroundColor Green
+
+Get-VMReplication
+
+Write-Host Switching the Replica virtual machine to a primary virtual machine -ForegroundColor Yellow
+Set-VMReplication -Reverse -VMName $vmname -ComputerName DC
+Write-Host Switching Completed -ForegroundColor Green
+
+Write-Host Starting the virtual machine -ForegroundColor Yellow
+Start-VM -VMName $vmname -ComputerName DC
+Write-Host $vmname is up and running -ForegroundColor Green
+
+Get-VMReplication 
+
+Start-Sleep -Seconds 5
+
+#Fail Back Steps
+Get-VMReplication 
+
+Write-Host Preparing planned failover of the replica VM -ForegroundColor Yellow
+Start-VMFailover -Prepare -VMName $vmname -ComputerName DC
+Write-Host Preparing Completed -ForegroundColor Green
+
+Write-Host Failing over the Primary virtual machine -ForegroundColor Yellow
+Start-VMFailover -VMName $vmname -ComputerName Server2012
+Write-Host Failing over Completed -ForegroundColor Green
+
+Get-VMReplication 
+
+Write-Host Switching the primary virtual machine to a replica virtual machine -ForegroundColor Yellow
+Set-VMReplication -Reverse -VMName $vmname -ComputerName Server2012
+Write-Host Switching Completed -ForegroundColor Green
+
+Write-Host Starting the virtual machine -ForegroundColor Yellow
+Start-VM -VMName $vmname -ComputerName Server2012
+Write-Host $vmname is up and running -ForegroundColor Green
+
+Get-VMReplication 
+
+Start-Sleep -Seconds 5
+```
