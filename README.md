@@ -219,6 +219,10 @@ Run Windows Memory Diagnostic Tool
 ## Using Driver Verifier to identify issues with Windows drivers
 verifier.exe /standard /all
 
+## Restore Task Manager Back From Sysinternals Proccess Explorer
+
+> reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\taskmgr.exe" /v Debugger
+
 
 # PowerShell
 
