@@ -331,11 +331,12 @@ Get-Mailbox -ResultSize Unlimited | Get-MailboxStatistics | Sort-Object TotalIte
 
 > Get-MessageTrackingLog -ResultSize Unlimited -Sender *EmailAddress* -Recipients *EmailAddress* | out-gridview
 
-## Export IIS websites
+## Export IIS websites and bindings
 
 > %windir%\system32\inetsrv\appcmd list site > c:\sites.xls
 
-> Get-WebBinding | ConvertTo-Csv | Out-File "C:\sites.csv"
+> Get-WebBinding | ConvertTo-Csv | Out-File "C:\bindings.csv" -Force -Verbose
+> Get-WebBsite | ConvertTo-Csv | Out-File "C:\sites.csv" -Force -Verbose
 
 ## Enable GPedit in Windows 10 Home
 
