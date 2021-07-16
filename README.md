@@ -254,6 +254,9 @@ New-NetFirewallRule -DisplayName 'RDPPORTLatest' -Profile 'Public' -Direction In
 ## How to restart IIS Website and Application Pool
 
 ```powershell
+#Restart a Web App Pool and IIS a Wesbsite
+#CopyLeft SVET :)
+
 $wap = Read-Host -Prompt 'Input the Web App Pool Name'
 Write-Host "`n$line"
 Write-Host "Next actions will be performed on App Pools and IIS websites that contain $wap in their name !!!" -ForegroundColor Yellow
@@ -264,7 +267,7 @@ Get-WebAppPoolState -Name *$wap*
 
 $yesno = Read-Host -Prompt 'Do you wish to proceed with stopping the website? y/n:'
 
-do {
+if ($yesno -like 'y'){
 
 Restart-WebAppPool -Name *$wap* -verbose
 #Stop-WebAppPool -Name *$wap* -verbose
@@ -288,7 +291,9 @@ Write-Host "The Window will close in 5 seconds"
 Start-Sleep -Seconds 5
 }
 
-until ($yesno -eq 'y')
+else {
+    Write-Host Negative User Choise
+}
 ```
 
 ## Export Windows Custom Event Logs for the past 30 days
