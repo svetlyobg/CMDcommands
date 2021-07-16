@@ -379,6 +379,29 @@ else {
 }
 ```
 
+## Export IIS Websites and Their Bindings
+
+```powershell
+$site = Read-Host -Prompt 'Input the website  Name'
+Write-Host "`n$line"
+Write-Host "Next actions will be performed on IIS websites that contain $site in their name !!!" -ForegroundColor Yellow
+Write-Host "`n$line"
+
+Wrrite-Host "Total bindings are "
+Get-WebBinding -Name $site | measure
+Get-WebBinding -Name $site
+
+Write-Host "SSL Bindings are"
+Get-WebBinding -name $site | Where-Object -Property sslFlags -eq 1
+Get-WebBinding -name $site | Where-Object -Property sslFlags -eq 1 | measure
+
+Write-host "NO SSL bindings are"
+Get-WebBinding -name $site | Where-Object -Property sslFlags -eq 0
+Get-WebBinding -name $site | Where-Object -Property sslFlags -eq 0 | measure
+
+
+Start-Sleep -Seconds 5
+```
 
 ## Export Windows Custom Event Logs for the past 30 days
 
