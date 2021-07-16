@@ -296,6 +296,50 @@ else {
 }
 ```
 
+## Stop IIS Website and Application Pool
+
+```powershell
+#Stop a Web App Pool and IIS a Wesbsite
+#CopyLeft SVET :)
+
+$wap = Read-Host -Prompt 'Input the Web App Pool Name'
+Write-Host "`n$line"
+Write-Host "Next actions will be performed on App Pools and IIS websites that contain $wap in their name !!!" -ForegroundColor Yellow
+Write-Host "`n$line"
+
+Get-Website -Name *$wap*
+Get-WebAppPoolState -Name *$wap*
+
+$yesno = Read-Host -Prompt 'Do you wish to proceed with stopping the website? y/n:'
+
+if ($yesno -like 'y'){
+
+Stop-WebAppPool -Name *$wap* -verbose
+#Start-WebAppPool -Name *$wap* -verbose
+Write-Host "`n$line"
+Write-Host "App Pools that contain $wap were sucessfully stopped!" -ForegroundColor Green
+Write-Host "`n$line"
+
+
+Stop-Website *$wap* -Verbose
+Write-Host "`n$line"
+Write-Host "IIS Websites that contain $wap in their name were STOPPED !!!" -ForegroundColor RED
+Write-Host "`n$line"
+
+Write-Host "The Window will close in 5 seconds"
+Start-Sleep -Seconds 5
+
+}
+
+else
+
+{
+    Write-Host Negative User Input!
+}
+
+```
+
+
 ## Export Windows Custom Event Logs for the past 30 days
 
 ```powershell
