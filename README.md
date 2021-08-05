@@ -223,6 +223,14 @@ verifier.exe /standard /all
 
 > reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\taskmgr.exe" /v Debugger
 
+## www to non www redirect in .htaccess
+<IfModule mod_rewrite.c>
+        RewriteEngine On
+        RewriteBase /
+        RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+        RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+    </IfModule>
+
 
 # PowerShell
 
