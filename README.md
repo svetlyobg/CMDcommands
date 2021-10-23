@@ -572,3 +572,16 @@ Get-VMReplication
 
 Start-Sleep -Seconds 5
 ```
+
+## How to Set an Individual Password to Never Expire in Office 365
+
+Open PowerShell with elevated privileges.
+
+```powershell
+Install-Module AzureAD
+Install-Module MSOnline
+$credential = Get-Credential
+Connect-MsolService -Credential $credential
+Set-MsolUser -UserPrincipalName <name of the account> -PasswordNeverExpires $true
+Set-MsolUser -UserPrincipalName user@example.com -PasswordNeverExpires $true
+```
