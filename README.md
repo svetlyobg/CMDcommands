@@ -304,6 +304,16 @@ else {
 }
 ```
 
+
+## Restart Server's Application Pools
+
+```cmd
+& $env:windir\system32\inetsrv\appcmd list apppools /state:Started /xml | & $env:windir\system32\inetsrv\appcmd recycle apppools /in
+```
+
+
+
+
 ## Stop IIS Website and Application Pool
 
 ```powershell
