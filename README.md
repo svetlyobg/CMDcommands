@@ -595,3 +595,9 @@ Connect-MsolService -Credential $credential
 Set-MsolUser -UserPrincipalName <name of the account> -PasswordNeverExpires $true
 Set-MsolUser -UserPrincipalName user@example.com -PasswordNeverExpires $true
 ```
+
+## Check for all disabled AD users
+
+```powershell
+Search-ADAccount –AccountDisabled –UsersOnly –ResultPageSize 2000 –ResultSetSize $null | Select-Object SamAccountName, DistinguishedName
+```
