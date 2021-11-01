@@ -601,3 +601,9 @@ Set-MsolUser -UserPrincipalName user@example.com -PasswordNeverExpires $true
 ```powershell
 Search-ADAccount –AccountDisabled –UsersOnly –ResultPageSize 2000 –ResultSetSize $null | Select-Object SamAccountName, DistinguishedName
 ```
+
+## Export Windows Firewall Rules
+
+```powershell
+get-netfirewallrule | select-object name, group, action, enabled, profile | export-csv C:\firewallrulesexported.csv
+```
