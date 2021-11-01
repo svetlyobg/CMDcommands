@@ -259,6 +259,12 @@ Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\W
 Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "PortNumber" -Value 3423
 New-NetFirewallRule -DisplayName 'RDPPORTLatest' -Profile 'Public' -Direction Inbound -Action Allow -Protocol TCP -LocalPort 3423
 
+## Check for open port
+
+```powershell
+Test-NetConnection -ComputerName **HOSTNAME** -Port **PORTNUMBER**
+```
+
 ## How to restart IIS Website and Application Pool
 
 ```powershell
