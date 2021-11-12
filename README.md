@@ -265,6 +265,20 @@ New-NetFirewallRule -DisplayName 'RDPPORTLatest' -Profile 'Public' -Direction In
 Test-NetConnection -ComputerName **HOSTNAME** -Port **PORTNUMBER**
 ```
 
+## List Installed Software Programs via Powershell
+
+```powershell
+Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table –AutoSize
+```
+
+```powershell
+Get-WmiObject win32_product
+```
+
+```powershell
+Get-CimInstance win32_product
+```
+
 ## How to restart IIS Website and Application Pool
 
 ```powershell
