@@ -451,7 +451,7 @@ Get-EventLog -LogName Security -After ((get-date).AddDays(-30)) -EntryType Error
 
 ## Import JSON to PowerShell
 
-1. ![Import the JSON file to a variable](/1-get-json-content.png)
+1. ![Import the JSON file to a variable](/"Import JSON to PowerShell"/1-get-json-content.png)
 
 ```powershell
 $import = Get-Content .\json.json
