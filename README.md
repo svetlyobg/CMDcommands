@@ -467,7 +467,24 @@ $import = Get-Content .\json.json | ConvertFrom-Json
 $import
 ```
 
-![Convert from JSON to PowerShell object](https://github.com/svetlyobg/CMDcommands/blob/master/Import%20JSON%20to%20PowerShell/2-convert-from-json-to-powershell-object.png.png)
+![Convert from JSON to PowerShell object](https://github.com/svetlyobg/CMDcommands/blob/master/Import%20JSON%20to%20PowerShell/2-convert-from-json-to-powershell-object.png)
+
+3. Get object Members, Properties and Methods
+
+```powershell
+$import | Get-Member
+```
+
+![Get object Members, Properties and Methods](https://github.com/svetlyobg/CMDcommands/blob/master/Import%20JSON%20to%20PowerShell/3-get-members-properties-and-methods.png)
+
+4. Get actual information
+
+```powershell
+$import.members
+$import.members.age
+```
+
+![Get object Members, Properties and Methods](https://github.com/svetlyobg/CMDcommands/blob/master/Import%20JSON%20to%20PowerShell/4-get-actual-information.png)
 
 
 # Batch
