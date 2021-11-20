@@ -449,6 +449,12 @@ Get-EventLog -LogName System -After ((get-date).AddDays(-30)) -EntryType Error ,
 Get-EventLog -LogName Security -After ((get-date).AddDays(-30)) -EntryType Error,FailureAudit,SuccessAudit,Warning |  ConvertTo-Csv | Out-File -FilePath C:\Users\%username%\Desktop\EVENTLOGS\SECURITYlast30days.csv -Force
 ```
 
+## Import JSON to PowerShell
+
+```powershell
+
+```
+
 # Batch
 
 ## check.NET version
