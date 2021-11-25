@@ -331,9 +331,6 @@ else {
 & $env:windir\system32\inetsrv\appcmd list apppools /state:Started /xml | & $env:windir\system32\inetsrv\appcmd recycle apppools /in
 ```
 
-
-
-
 ## Stop IIS Website and Application Pool
 
 ```powershell
@@ -515,6 +512,16 @@ At the end, navigate to C:\Users\%username%\AppData\Roaming\Microsoft\Network\Co
 
 ```bat
 reg add "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowSignInOptions" /v value /t REG_DWORD /d 0 /f
+```
+
+## Disable Windows telemetry
+
+```bat
+rem Windows Telemetry must not be configured to Full
+reg add "HKLM\Software\Policies\Microsoft\WindowsDataCollection\" /v AllowTelemetry /t REG_DWORD /d 0 /f
+
+rem If Enhanced diagnostic data is enabled it must be limited to the minimum required to support Windows Analytics
+reg add "HKLM\Software\Policies\Microsoft\WindowsDataCollection\" /v LimitEnhancedDiagnosticDataWindowsAnalytics /t REG_DWORD /d 1 /f
 ```
 
 # Other
