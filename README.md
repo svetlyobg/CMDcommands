@@ -511,6 +511,12 @@ rasphone.exe -h "ChangeMeVPN-NAME"
 ```
 At the end, navigate to C:\Users\%username%\AppData\Roaming\Microsoft\Network\Connections\Pbk and edit the rasphone.pbk file by changing PreviewUserPw=0 from 1 to 0
 
+## Disable Windows 10 PIN
+
+```bat
+reg add "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowSignInOptions" /v value /t REG_DWORD /d 0 /f
+```
+
 # Other
 
 ## recycle bin path in Windows 10
