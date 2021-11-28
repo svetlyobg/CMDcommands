@@ -231,6 +231,9 @@ verifier.exe /standard /all
         RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
     </IfModule>
 
+## Add an app to run automatically at startup in Windows 10
+
+Windows logo key + R,type ```shell:startup```, then select OK. This opens the Startup folder. Copy and paste the shortcut to the app from the file location to the Startup folder.
 
 # PowerShell
 
