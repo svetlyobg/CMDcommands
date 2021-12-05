@@ -1,3 +1,11 @@
+![GitHub all releases](https://img.shields.io/github/downloads/svetlyobg/CMDcommands/total?logo=GitHub&style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/svetlyobg/CMDcommands)
+![GitHub top language](https://img.shields.io/github/languages/top/svetlyobg/CMDcommands)
+![GitHub language count](https://img.shields.io/github/languages/count/svetlyobg/CMDcommands)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/svetlyobg/CMDcommands)
+![GitHub issues](https://img.shields.io/github/issues/svetlyobg/CMDcommands)
+![Twitter Follow](https://img.shields.io/twitter/follow/svkosev?style=social)
+
 # usefulCMDcommands
 
 ## ipconfig
