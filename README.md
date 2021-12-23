@@ -500,6 +500,12 @@ $import.members.age
 
 ![Get object Members, Properties and Methods](https://github.com/svetlyobg/CMDcommands/blob/master/Import%20JSON%20to%20PowerShell/4-get-actual-information.png)
 
+## Create .zip Archive via PowerShell
+
+```powershell
+Compress-Archive -LiteralPath ".\outlook.pst" -DestinationPath ".\outlook.zip" -CompressionLevel Optimal -Force -Verbose
+```
+
 
 # Batch
 
