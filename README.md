@@ -700,6 +700,12 @@ Set-MsolUser -UserPrincipalName user@example.com -PasswordNeverExpires $true
 Search-ADAccount –AccountDisabled –UsersOnly –ResultPageSize 2000 –ResultSetSize $null | Select-Object SamAccountName, DistinguishedName
 ```
 
+## Add Office 365 User to the Administrators Group
+
+```powershell
+net localgroup administrators AzureAD\SvetLyo /add
+```
+
 ## Export Windows Firewall Rules
 
 ```powershell
