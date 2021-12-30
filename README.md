@@ -565,6 +565,10 @@ Get-Mailbox -ResultSize Unlimited | Get-MailboxStatistics | Sort-Object TotalIte
 
 > Get-MessageTrackingLog -ResultSize Unlimited -Sender *EmailAddress* -Recipients *EmailAddress* | out-gridview
 
+## Check Exchange ActiveSync and OWA for Devices are enabled for a user
+
+> Get-MobileDeviceStatistics -Mailbox svet@example.com | Select -Property LastSuccessSync, LastSyncAttemptTime, DeviceUserAgent, DeviceModel, DeviceFriendlyName, DeviceOS ,Guid | Convertto-Csv | Out-File svet-devices.csv
+
 ## Export IIS websites and bindings
 
 > %windir%\system32\inetsrv\appcmd list site > c:\sites.xls
