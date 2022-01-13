@@ -458,9 +458,11 @@ Start-Sleep -Seconds 5
 ## Export Windows Custom Event Logs for the past 30 days
 
 ```powershell
-Get-EventLog -LogName System -After ((get-date).AddDays(-30)) -EntryType Error , Warning  |  ConvertTo-Csv | Out-File -FilePath C:\Users\%username%\Desktop\EVENTLOGS\SYSTEMlast30days.csv -Force
+Get-EventLog -LogName System -After ((get-date).AddDays(-30)) -EntryType Error, Warning  |  ConvertTo-Csv | Out-File -FilePath C:\Users\%username%\Desktop\EVENTLOGS\SYSTEMlast30days.csv -Force
 
 Get-EventLog -LogName Security -After ((get-date).AddDays(-30)) -EntryType Error,FailureAudit,SuccessAudit,Warning |  ConvertTo-Csv | Out-File -FilePath C:\Users\%username%\Desktop\EVENTLOGS\SECURITYlast30days.csv -Force
+
+Get-EventLog -LogName Application -After ((get-date).AddDays(-30)) -EntryType Error, Warning |  ConvertTo-Csv | Out-File -FilePath C:\Users\%username%\Desktop\EVENTLOGS\APPLICATIONlast30days.csv -Force
 ```
 
 ## Import JSON to PowerShell
