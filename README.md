@@ -581,6 +581,15 @@ Get-Mailbox -ResultSize Unlimited | Get-MailboxStatistics | Sort-Object TotalIte
 
 > Get-Website | ConvertTo-Csv | Out-File "C:\sites.csv" -Force -Verbose
 
+```powershell
+Get-Website | Select-Object -ExpandProperty Bindings | ft
+$ws = Get-Website
+$ws.PhysicalPath
+$ws.PhysicalPath | ConvertTo-Html | Out-File C:\Users\%username%\Desktop\path.html
+$ws.Bindings.Collection
+$ws.Bindings.Collection | ConvertTo-Html | Out-File C:\Users\%username%\Desktop\bindings.html
+```
+
 ## Enable GPedit in Windows 10 Home
 
 run this in cmd.exe as an admin:
