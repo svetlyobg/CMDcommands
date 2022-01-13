@@ -509,6 +509,13 @@ $import.members.age
 ```powershell
 Compress-Archive -LiteralPath ".\outlook.pst" -DestinationPath ".\outlook.zip" -CompressionLevel Optimal -Force -Verbose
 ```
+or
+```powershell
+$source = '.'
+$destination = "C:\Users\%username%\Desktop"
+$subfolders = Get-ChildItem $source -Directory -Recurse
+Compress-Archive -Path $source -DestinationPath "$destination\archive.zip" -CompressionLevel Fastest -Force -Verbose
+```
 
 
 # Batch
