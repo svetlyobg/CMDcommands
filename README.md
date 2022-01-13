@@ -463,6 +463,8 @@ Get-EventLog -LogName System -After ((get-date).AddDays(-30)) -EntryType Error, 
 Get-EventLog -LogName Security -After ((get-date).AddDays(-30)) -EntryType Error,FailureAudit,SuccessAudit,Warning |  ConvertTo-Csv | Out-File -FilePath C:\Users\%username%\Desktop\EVENTLOGS\SECURITYlast30days.csv -Force
 
 Get-EventLog -LogName Application -After ((get-date).AddDays(-30)) -EntryType Error, Warning |  ConvertTo-Csv | Out-File -FilePath C:\Users\%username%\Desktop\EVENTLOGS\APPLICATIONlast30days.csv -Force
+
+Get-EventLog -LogName Security -After ((get-date).AddDays(-1)) | where {$_.EventID -eq 4771} |  ConvertTo-Csv | Out-File -FilePath .\Secyritylast1dayID4771.csv -Force
 ```
 
 ## Import JSON to PowerShell
