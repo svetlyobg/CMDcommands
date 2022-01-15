@@ -580,6 +580,14 @@ Get-Mailbox -ResultSize Unlimited | Get-MailboxStatistics | Sort-Object TotalIte
 
 > Get-MobileDeviceStatistics -Mailbox svet@example.com | Select -Property LastSuccessSync, LastSyncAttemptTime, DeviceUserAgent, DeviceModel, DeviceFriendlyName, DeviceOS ,Guid | Convertto-Csv | Out-File svet-devices.csv
 
+## Y2K22 Workaround - Disable-AntimalwareScanning
+
+```powershell
+cd "C:\Program Files\Microsoft\Exchange Server\V15\Scripts"
+.\Disable-AntimalwareScanning.ps1
+Restart-Service MSExchangeTransport -Verbose
+```
+
 ## Export IIS websites and bindings
 
 > %windir%\system32\inetsrv\appcmd list site > c:\sites.xls
