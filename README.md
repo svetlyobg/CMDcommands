@@ -73,7 +73,6 @@ CHKDSK is a Windows utility that can check the integrity of your hard disk and c
 /r - relocate bad sectors
 /v - displays the path of every file
 
-
 ## sfc /scannow
 Scan System Files for Problems
 
@@ -122,6 +121,12 @@ Creates user Svet and sets the password to 1234
 
 ## net localgroup Administrators Svet /add
 Adds user to group
+
+## Add Office 365 User to the Administrators Group
+
+```powershell
+net localgroup administrators AzureAD\SvetLyo /add
+```
 
 ## WMIC USERACCOUNT WHERE Name='Svet' SET PasswordExpires=FALSE
 Sets the password for Svet to never expire
@@ -231,17 +236,50 @@ verifier.exe /standard /all
 
 > reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\taskmgr.exe" /v Debugger
 
-## www to non www redirect in .htaccess
-<IfModule mod_rewrite.c>
-        RewriteEngine On
-        RewriteBase /
-        RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-        RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
-    </IfModule>
-
 ## Add an app to run automatically at startup in Windows 10
 
 Windows logo key + R,type ```shell:startup```, then select OK. This opens the Startup folder. Copy and paste the shortcut to the app from the file location to the Startup folder.
+
+# Batch
+
+## check.NET version
+@echo off
+cmd /k reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\full" /v version
+
+## Automatically enable VPN for RDP and closes it on exit
+# Set up the VPN using rasphone.exe and save the user credentials
+(put the .bat file in the same location as .rdp file)
+
+```bat
+@echo off
+
+:: Connecting to VPN...
+rasphone.exe -d  "ChangeMeVPN-NAME"
+
+echo Running RDP...
+"ChangeMeRDP-NAME.rdp"
+
+echo Finished - disconnecting from VPN...
+rasphone.exe -h "ChangeMeVPN-NAME"
+```
+At the end, navigate to C:\Users\%username%\AppData\Roaming\Microsoft\Network\Connections\Pbk and edit the rasphone.pbk file by changing PreviewUserPw=0 from 1 to 0
+
+## Disable Windows 10 PIN
+
+```bat
+reg add "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowSignInOptions" /v value /t REG_DWORD /d 0 /f
+```
+
+## Disable Windows telemetry
+
+```bat
+rem Windows Telemetry must not be configured to Full
+reg add "HKLM\Software\Policies\Microsoft\WindowsDataCollection\" /v AllowTelemetry /t REG_DWORD /d 0 /f
+
+rem If Enhanced diagnostic data is enabled it must be limited to the minimum required to support Windows Analytics
+reg add "HKLM\Software\Policies\Microsoft\WindowsDataCollection\" /v LimitEnhancedDiagnosticDataWindowsAnalytics /t REG_DWORD /d 1 /f
+```
+
 
 # PowerShell
 
@@ -289,6 +327,75 @@ Get-WmiObject win32_product
 ```powershell
 Get-CimInstance win32_product
 ```
+
+## Create .zip Archive via PowerShell
+
+```powershell
+Compress-Archive -LiteralPath ".\outlook.pst" -DestinationPath ".\outlook.zip" -CompressionLevel Optimal -Force -Verbose
+```
+or
+```powershell
+$source = '.'
+$destination = "C:\Users\%username%\Desktop"
+$subfolders = Get-ChildItem $source -Directory -Recurse
+Compress-Archive -Path $source -DestinationPath "$destination\archive.zip" -CompressionLevel Fastest -Force -Verbose
+```
+
+
+# Active Directory
+
+## Export Windows Custom Event Logs for the past 30 days
+
+```powershell
+Get-EventLog -LogName System -After ((get-date).AddDays(-30)) -EntryType Error, Warning  |  ConvertTo-Csv | Out-File -FilePath C:\Users\%username%\Desktop\EVENTLOGS\SYSTEMlast30days.csv -Force
+
+Get-EventLog -LogName Security -After ((get-date).AddDays(-30)) -EntryType Error,FailureAudit,SuccessAudit,Warning |  ConvertTo-Csv | Out-File -FilePath C:\Users\%username%\Desktop\EVENTLOGS\SECURITYlast30days.csv -Force
+
+Get-EventLog -LogName Application -After ((get-date).AddDays(-30)) -EntryType Error, Warning |  ConvertTo-Csv | Out-File -FilePath C:\Users\%username%\Desktop\EVENTLOGS\APPLICATIONlast30days.csv -Force
+
+Get-EventLog -LogName Security -After ((get-date).AddDays(-1)) | where {$_.EventID -eq 4771} |  ConvertTo-Csv | Out-File -FilePath .\Secyritylast1dayID4771.csv -Force
+```
+
+## Check for all disabled AD users
+
+```powershell
+Search-ADAccount –AccountDisabled –UsersOnly –ResultPageSize 2000 –ResultSetSize $null | Select-Object SamAccountName, DistinguishedName
+```
+
+# Exchange
+
+## Check user email usage
+Get-MailboxStatistics "*EmailAddress*" | Select-Object -Property DisplayName,TotalitemSize
+
+## Check all user email usage
+
+Get-Mailbox -ResultSize Unlimited | Get-MailboxStatistics | Sort-Object TotalItemSize -Descending | Select-Object DisplayName,TotalItemSize
+
+## Check Sent/Received emails
+
+> Get-MessageTrackingLog -ResultSize Unlimited -Sender *EmailAddress* -Recipients *EmailAddress* | out-gridview
+
+## Check Exchange ActiveSync and OWA for Devices are enabled for a user
+
+> Get-MobileDeviceStatistics -Mailbox svet@example.com | Select -Property LastSuccessSync, LastSyncAttemptTime, DeviceUserAgent, DeviceModel, DeviceFriendlyName, DeviceOS ,Guid | Convertto-Csv | Out-File svet-devices.csv
+
+## Y2K22 Workaround - Disable-AntimalwareScanning
+
+```powershell
+cd "C:\Program Files\Microsoft\Exchange Server\V15\Scripts"
+.\Disable-AntimalwareScanning.ps1
+Restart-Service MSExchangeTransport -Verbose
+```
+
+# IIS Web Server
+
+## www to non www redirect in .htaccess
+<IfModule mod_rewrite.c>
+        RewriteEngine On
+        RewriteBase /
+        RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+        RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+    </IfModule>
 
 ## How to restart IIS Website and Application Pool
 
@@ -455,16 +562,21 @@ Get-WebBinding -name $site | Where-Object -Property sslFlags -eq 0 | measure
 Start-Sleep -Seconds 5
 ```
 
-## Export Windows Custom Event Logs for the past 30 days
+## Export IIS websites and bindings
+
+> %windir%\system32\inetsrv\appcmd list site > c:\sites.xls
+
+> Get-WebBinding | ConvertTo-Csv | Out-File "C:\bindings.csv" -Force -Verbose
+
+> Get-Website | ConvertTo-Csv | Out-File "C:\sites.csv" -Force -Verbose
 
 ```powershell
-Get-EventLog -LogName System -After ((get-date).AddDays(-30)) -EntryType Error, Warning  |  ConvertTo-Csv | Out-File -FilePath C:\Users\%username%\Desktop\EVENTLOGS\SYSTEMlast30days.csv -Force
-
-Get-EventLog -LogName Security -After ((get-date).AddDays(-30)) -EntryType Error,FailureAudit,SuccessAudit,Warning |  ConvertTo-Csv | Out-File -FilePath C:\Users\%username%\Desktop\EVENTLOGS\SECURITYlast30days.csv -Force
-
-Get-EventLog -LogName Application -After ((get-date).AddDays(-30)) -EntryType Error, Warning |  ConvertTo-Csv | Out-File -FilePath C:\Users\%username%\Desktop\EVENTLOGS\APPLICATIONlast30days.csv -Force
-
-Get-EventLog -LogName Security -After ((get-date).AddDays(-1)) | where {$_.EventID -eq 4771} |  ConvertTo-Csv | Out-File -FilePath .\Secyritylast1dayID4771.csv -Force
+Get-Website | Select-Object -ExpandProperty Bindings | ft
+$ws = Get-Website
+$ws.PhysicalPath
+$ws.PhysicalPath | ConvertTo-Html | Out-File C:\Users\%username%\Desktop\path.html
+$ws.Bindings.Collection
+$ws.Bindings.Collection | ConvertTo-Html | Out-File C:\Users\%username%\Desktop\bindings.html
 ```
 
 ## Import JSON to PowerShell
@@ -504,120 +616,8 @@ $import.members.age
 
 ![Get object Members, Properties and Methods](https://github.com/svetlyobg/CMDcommands/blob/master/Import%20JSON%20to%20PowerShell/4-get-actual-information.png)
 
-## Create .zip Archive via PowerShell
 
-```powershell
-Compress-Archive -LiteralPath ".\outlook.pst" -DestinationPath ".\outlook.zip" -CompressionLevel Optimal -Force -Verbose
-```
-or
-```powershell
-$source = '.'
-$destination = "C:\Users\%username%\Desktop"
-$subfolders = Get-ChildItem $source -Directory -Recurse
-Compress-Archive -Path $source -DestinationPath "$destination\archive.zip" -CompressionLevel Fastest -Force -Verbose
-```
-
-
-# Batch
-
-## check.NET version
-@echo off
-cmd /k reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\full" /v version
-
-## Automatically enable VPN for RDP and closes it on exit
-# Set up the VPN using rasphone.exe and save the user credentials
-(put the .bat file in the same location as .rdp file)
-
-```bat
-@echo off
-
-:: Connecting to VPN...
-rasphone.exe -d  "ChangeMeVPN-NAME"
-
-echo Running RDP...
-"ChangeMeRDP-NAME.rdp"
-
-echo Finished - disconnecting from VPN...
-rasphone.exe -h "ChangeMeVPN-NAME"
-```
-At the end, navigate to C:\Users\%username%\AppData\Roaming\Microsoft\Network\Connections\Pbk and edit the rasphone.pbk file by changing PreviewUserPw=0 from 1 to 0
-
-## Disable Windows 10 PIN
-
-```bat
-reg add "HKLM\SOFTWARE\Microsoft\PolicyManager\default\Settings\AllowSignInOptions" /v value /t REG_DWORD /d 0 /f
-```
-
-## Disable Windows telemetry
-
-```bat
-rem Windows Telemetry must not be configured to Full
-reg add "HKLM\Software\Policies\Microsoft\WindowsDataCollection\" /v AllowTelemetry /t REG_DWORD /d 0 /f
-
-rem If Enhanced diagnostic data is enabled it must be limited to the minimum required to support Windows Analytics
-reg add "HKLM\Software\Policies\Microsoft\WindowsDataCollection\" /v LimitEnhancedDiagnosticDataWindowsAnalytics /t REG_DWORD /d 1 /f
-```
-
-# Other
-
-## recycle bin path in Windows 10
-C:\$Recycle.Bin
-
-# Exchange Console
-
-## Check user email usage
-Get-MailboxStatistics "*EmailAddress*" | Select-Object -Property DisplayName,TotalitemSize
-
-## Check all user email usage
-
-Get-Mailbox -ResultSize Unlimited | Get-MailboxStatistics | Sort-Object TotalItemSize -Descending | Select-Object DisplayName,TotalItemSize
-
-## Check Sent/Received emails
-
-> Get-MessageTrackingLog -ResultSize Unlimited -Sender *EmailAddress* -Recipients *EmailAddress* | out-gridview
-
-## Check Exchange ActiveSync and OWA for Devices are enabled for a user
-
-> Get-MobileDeviceStatistics -Mailbox svet@example.com | Select -Property LastSuccessSync, LastSyncAttemptTime, DeviceUserAgent, DeviceModel, DeviceFriendlyName, DeviceOS ,Guid | Convertto-Csv | Out-File svet-devices.csv
-
-## Y2K22 Workaround - Disable-AntimalwareScanning
-
-```powershell
-cd "C:\Program Files\Microsoft\Exchange Server\V15\Scripts"
-.\Disable-AntimalwareScanning.ps1
-Restart-Service MSExchangeTransport -Verbose
-```
-
-## Export IIS websites and bindings
-
-> %windir%\system32\inetsrv\appcmd list site > c:\sites.xls
-
-> Get-WebBinding | ConvertTo-Csv | Out-File "C:\bindings.csv" -Force -Verbose
-
-> Get-Website | ConvertTo-Csv | Out-File "C:\sites.csv" -Force -Verbose
-
-```powershell
-Get-Website | Select-Object -ExpandProperty Bindings | ft
-$ws = Get-Website
-$ws.PhysicalPath
-$ws.PhysicalPath | ConvertTo-Html | Out-File C:\Users\%username%\Desktop\path.html
-$ws.Bindings.Collection
-$ws.Bindings.Collection | ConvertTo-Html | Out-File C:\Users\%username%\Desktop\bindings.html
-```
-
-## Enable GPedit in Windows 10 Home
-
-run this in cmd.exe as an admin:
-
-> pushd "%~dp0" 
-
-> dir /b %SystemRoot%\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum >List.txt 
-
-> dir /b %SystemRoot%\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum >>List.txt 
-
-> for /f %%i in ('findstr /i . List.txt 2^>nul') do dism /online /norestart /add-package:"%SystemRoot%\servicing\Packages\%%i" 
-
-> pause
+## Hyper-V
 
 ## Enable Hyper-V in Windows Home
 
@@ -709,6 +709,8 @@ Get-VMReplication
 Start-Sleep -Seconds 5
 ```
 
+## Office 365/Azure
+
 ## How to Set an Individual Password to Never Expire in Office 365
 
 Open PowerShell with elevated privileges.
@@ -722,17 +724,31 @@ Set-MsolUser -UserPrincipalName <name of the account> -PasswordNeverExpires $tru
 Set-MsolUser -UserPrincipalName user@example.com -PasswordNeverExpires $true
 ```
 
-## Check for all disabled AD users
-
-```powershell
-Search-ADAccount –AccountDisabled –UsersOnly –ResultPageSize 2000 –ResultSetSize $null | Select-Object SamAccountName, DistinguishedName
-```
-
 ## Add Office 365 User to the Administrators Group
 
 ```powershell
 net localgroup administrators AzureAD\SvetLyo /add
 ```
+
+
+# Other
+
+## recycle bin path in Windows 10
+C:\$Recycle.Bin
+
+## Enable GPedit in Windows 10 Home
+
+run this in cmd.exe as an admin:
+
+> pushd "%~dp0" 
+
+> dir /b %SystemRoot%\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientExtensions-Package~3*.mum >List.txt 
+
+> dir /b %SystemRoot%\servicing\Packages\Microsoft-Windows-GroupPolicy-ClientTools-Package~3*.mum >>List.txt 
+
+> for /f %%i in ('findstr /i . List.txt 2^>nul') do dism /online /norestart /add-package:"%SystemRoot%\servicing\Packages\%%i" 
+
+> pause
 
 ## Export Windows Firewall Rules
 
