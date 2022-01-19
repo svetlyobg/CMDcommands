@@ -617,6 +617,14 @@ $import.members.age
 ![Get object Members, Properties and Methods](https://github.com/svetlyobg/CMDcommands/blob/master/Import%20JSON%20to%20PowerShell/4-get-actual-information.png)
 
 
+## Bulk check website php version
+1. Upload the phpinfo.php file in the website root dir
+2. In a text file add all website URL to be scanned
+3. Use Linux ```bash wget -i sites.txt``` to get all the data
+4. Find in files the php version using Notepad++
+5. Open all results as tabs in Notepadd++
+6. Find in files $_SERVER['SERVER_NAME'] to list the websites using the php version from point 4
+
 ## Hyper-V
 
 ## Enable Hyper-V in Windows Home
