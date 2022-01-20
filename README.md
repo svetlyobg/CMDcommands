@@ -387,6 +387,12 @@ cd "C:\Program Files\Microsoft\Exchange Server\V15\Scripts"
 Restart-Service MSExchangeTransport -Verbose
 ```
 
+## Get Exchange services status
+
+```powershell
+Get-Service *exchange* | Where-Object {$_.Status -eq "Running"}
+```
+
 # IIS Web Server
 
 ## www to non www redirect in .htaccess
