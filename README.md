@@ -262,7 +262,7 @@ echo Running RDP...
 echo Finished - disconnecting from VPN...
 rasphone.exe -h "ChangeMeVPN-NAME"
 ```
-At the end, navigate to C:\Users\%username%\AppData\Roaming\Microsoft\Network\Connections\Pbk and edit the rasphone.pbk file by changing PreviewUserPw=0 from 1 to 0
+At the end, navigate to C:\Users\$env:UserName\AppData\Roaming\Microsoft\Network\Connections\Pbk and edit the rasphone.pbk file by changing PreviewUserPw=0 from 1 to 0
 
 ## Disable Windows 10 PIN
 
@@ -336,7 +336,7 @@ Compress-Archive -LiteralPath ".\outlook.pst" -DestinationPath ".\outlook.zip" -
 or
 ```powershell
 $source = '.'
-$destination = "C:\Users\%username%\Desktop"
+$destination = "C:\Users\$env:UserName\Desktop"
 $subfolders = Get-ChildItem $source -Directory -Recurse
 Compress-Archive -Path $source -DestinationPath "$destination\archive.zip" -CompressionLevel Fastest -Force -Verbose
 ```
@@ -347,11 +347,11 @@ Compress-Archive -Path $source -DestinationPath "$destination\archive.zip" -Comp
 ## Export Windows Custom Event Logs for the past 30 days
 
 ```powershell
-Get-EventLog -LogName System -After ((get-date).AddDays(-30)) -EntryType Error, Warning  |  ConvertTo-Csv | Out-File -FilePath C:\Users\%username%\Desktop\EVENTLOGS\SYSTEMlast30days.csv -Force
+Get-EventLog -LogName System -After ((get-date).AddDays(-30)) -EntryType Error, Warning  |  ConvertTo-Csv | Out-File -FilePath C:\Users\$env:UserName\Desktop\EVENTLOGS\SYSTEMlast30days.csv -Force
 
-Get-EventLog -LogName Security -After ((get-date).AddDays(-30)) -EntryType Error,FailureAudit,SuccessAudit,Warning |  ConvertTo-Csv | Out-File -FilePath C:\Users\%username%\Desktop\EVENTLOGS\SECURITYlast30days.csv -Force
+Get-EventLog -LogName Security -After ((get-date).AddDays(-30)) -EntryType Error,FailureAudit,SuccessAudit,Warning |  ConvertTo-Csv | Out-File -FilePath C:\Users\$env:UserName\Desktop\EVENTLOGS\SECURITYlast30days.csv -Force
 
-Get-EventLog -LogName Application -After ((get-date).AddDays(-30)) -EntryType Error, Warning |  ConvertTo-Csv | Out-File -FilePath C:\Users\%username%\Desktop\EVENTLOGS\APPLICATIONlast30days.csv -Force
+Get-EventLog -LogName Application -After ((get-date).AddDays(-30)) -EntryType Error, Warning |  ConvertTo-Csv | Out-File -FilePath C:\Users\$env:UserName\Desktop\EVENTLOGS\APPLICATIONlast30days.csv -Force
 
 Get-EventLog -LogName Security -After ((get-date).AddDays(-1)) | where {$_.EventID -eq 4771} |  ConvertTo-Csv | Out-File -FilePath .\Secyritylast1dayID4771.csv -Force
 ```
@@ -580,9 +580,9 @@ Start-Sleep -Seconds 5
 Get-Website | Select-Object -ExpandProperty Bindings | ft
 $ws = Get-Website
 $ws.PhysicalPath
-$ws.PhysicalPath | ConvertTo-Html | Out-File C:\Users\%username%\Desktop\path.html
+$ws.PhysicalPath | ConvertTo-Html | Out-File C:\Users\$env:UserName\Desktop\path.html
 $ws.Bindings.Collection
-$ws.Bindings.Collection | ConvertTo-Html | Out-File C:\Users\%username%\Desktop\bindings.html
+$ws.Bindings.Collection | ConvertTo-Html | Out-File C:\Users\$env:UserName\Desktop\bindings.html
 ```
 
 ## Import JSON to PowerShell
