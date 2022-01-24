@@ -341,6 +341,33 @@ $subfolders = Get-ChildItem $source -Directory -Recurse
 Compress-Archive -Path $source -DestinationPath "$destination\archive.zip" -CompressionLevel Fastest -Force -Verbose
 ```
 
+## Recursively Delete Folder and Its Subfolders
+
+```powershell
+## 1
+Get-ChildItem -Path "C:\archive" -File -Recurse | Remove-Item -Verbose
+
+## 2
+$folderPath = "C:\archive\"
+$user = "$env:USERNAME"
+$accesstype = "FullControl"
+$argList = $user, $accesstype, $allowOrDeny
+$allowOrDeny = "Allow"
+$acl = Get-Acl $folderPath
+$AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule -ArgumentList $argList
+$AccessRule = New-Object System.Security.AccessControl.FileSystemAccessRule ($user, $accesstype, $allowOrDeny)
+$acl.SetAccessRule($AccessRule)
+$acl | Set-Acl $folderPath
+
+## 3
+$folderPath = "C:\archive\"
+$user = "$env:USERNAME"
+$grant = "/grant:r"
+$permission = ":(OI)(CI)(F)"
+$inhertance = "/inheritance:e"
+Invoke-Expression -Command ('icacls $folderPath $inhertance $grant "${user}${permission}"')
+```
+
 
 # Active Directory
 
