@@ -389,6 +389,12 @@ Get-EventLog -LogName Security -After ((get-date).AddDays(-1)) | where {$_.Event
 Search-ADAccount –AccountDisabled –UsersOnly –ResultPageSize 2000 –ResultSetSize $null | Select-Object SamAccountName, DistinguishedName
 ```
 
+## Check for all enabled AD users
+
+```powershell
+ Get-ADUser -Filter 'enabled -eq $true' | Select-Object GivenName, Name,  SamAccountName, UserPrincipalName | ConvertTo-Html | Out-File .\enabled.html
+```
+
 # Exchange
 
 ## Check user email usage
