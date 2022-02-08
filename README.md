@@ -395,6 +395,12 @@ Search-ADAccount –AccountDisabled –UsersOnly –ResultPageSize 2000 –Resul
  Get-ADUser -Filter 'enabled -eq $true' | Select-Object GivenName, Name,  SamAccountName, UserPrincipalName | ConvertTo-Html | Out-File .\enabled.html
 ```
 
+## Get information about all Server Roles and Features
+
+```powershell
+Get-WindowsFeature | Where-Object {$_. installstate -eq "installed"} | Format-List Name,Installstate
+```
+
 # Exchange
 
 ## Check user email usage
