@@ -76,6 +76,9 @@ CHKDSK is a Windows utility that can check the integrity of your hard disk and c
 ## sfc /scannow
 Scan System Files for Problems
 
+## How to Check NTP Server Date & Time Using Windows Command Line
+w32tm /stripchart /computer:localhost /dataonly /samples:3
+
 ## DISM /Online /Cleanup-Image /CheckHealth
 Determine if there are any corruptions inside the local image. However, the option won't perform any repairs.
 
