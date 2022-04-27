@@ -243,6 +243,16 @@ verifier.exe /standard /all
 
 Windows logo key + R,type ```shell:startup```, then select OK. This opens the Startup folder. Copy and paste the shortcut to the app from the file location to the Startup folder.
 
+## Delete Files With Specific Content
+
+```powershell
+#Get-ChildItem "." -Filter *.eml -Recurse | Select-String "undeliverable"| Select Filename, LineNumber, Line, Path | Format-Table > filename.txt
+Get-ChildItem "." -Filter *.eml -Recurse | Select-String "undeliverable"| Select Filename | Format-Table > filename.txt
+Get-Content .\filename.txt
+#Manually remove obsolete lines
+Get-Content .\filename.txt | Remove-Item -Verbose
+```
+
 # Batch
 
 ## check.NET version
