@@ -293,6 +293,14 @@ rem If Enhanced diagnostic data is enabled it must be limited to the minimum req
 reg add "HKLM\Software\Policies\Microsoft\WindowsDataCollection\" /v LimitEnhancedDiagnosticDataWindowsAnalytics /t REG_DWORD /d 1 /f
 ```
 
+## Check Windows Defender Exclusions
+```bat
+reg query "HKLM\Software\Microsoft\Windows Defender\Exclusions\Extensions"
+reg query "HKLM\Software\Microsoft\Windows Defender\Exclusions\IpAddresses"
+reg query "HKLM\Software\Microsoft\Windows Defender\Exclusions\Paths"
+reg query "HKLM\Software\Microsoft\Windows Defender\Exclusions\Processes"
+reg query "HKLM\Software\Microsoft\Windows Defender\Exclusions\TemporaryPaths"
+```
 
 # PowerShell
 
