@@ -798,6 +798,12 @@ Set-MsolUser -UserPrincipalName <name of the account> -PasswordNeverExpires $tru
 Set-MsolUser -UserPrincipalName user@example.com -PasswordNeverExpires $true
 ```
 
+## How do you find these X largest files?
+
+```powershell
+Get-ChildItem .\ -recurse | Sort-Object length -descending | select-object -first 32 | ft name,length -wrap –auto
+```
+
 ## Add Office 365 User to the Administrators Group
 
 ```powershell
