@@ -125,6 +125,9 @@ Creates user Svet and sets the password to 1234
 ## net localgroup Administrators Svet /add
 Adds user to group
 
+## Kill stuck Outlook
+taskkill /IM outlook.exe
+
 ## Add Office 365 User to the Administrators Group
 
 ```powershell
