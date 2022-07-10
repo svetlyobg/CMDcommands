@@ -365,6 +365,12 @@ $subfolders = Get-ChildItem $source -Directory -Recurse
 Compress-Archive -Path $source -DestinationPath "$destination\archive.zip" -CompressionLevel Fastest -Force -Verbose
 ```
 
+## Create .zip Archive via 7z cmd
+
+```cmd
+"C:\Program Files\7-Zip\7z" a -tzip "C:\archive_%date%_.zip" "M:\Ethical Hacking\tools\" -r -mm=LZMA -mmt=on -mx9 -md=256m -mfb=256 -sccUTF-8 "-p0" -mem=AES256
+```
+
 ## Recursively Delete Folder and Its Subfolders
 
 ```powershell
