@@ -470,6 +470,17 @@ Get-Service *exchange* | Where-Object {$_.Status -eq "Running"}
 
 # IIS Web Server
 
+## Remove Server Response Header
+
+Create and outbound rule
+
+```
+RESPONSE_Server
+```
+
+![image](\img\RESPONSE_Server.png)
+
+
 ## www to non www redirect in .htaccess
 <IfModule mod_rewrite.c>
         RewriteEngine On
