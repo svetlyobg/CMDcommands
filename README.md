@@ -472,7 +472,7 @@ Get-Service *exchange* | Where-Object {$_.Status -eq "Running"}
 
 ## Remove Server Response Header
 
-Create and outbound rule
+Create an outbound rule
 
 ```
 RESPONSE_Server
