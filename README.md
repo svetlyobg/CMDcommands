@@ -478,7 +478,7 @@ Create and outbound rule
 RESPONSE_Server
 ```
 
-![image](\img\RESPONSE_Server.png)
+![RESPONSE_Server](/img/RESPONSE_Server.png)
 
 
 ## www to non www redirect in .htaccess
