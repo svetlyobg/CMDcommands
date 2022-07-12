@@ -384,6 +384,23 @@ Compress-Archive -LiteralPath ".\0\" -DestinationPath ".\$d.zip" -CompressionLev
 "C:\Program Files\7-Zip\7z" u "C:\tmp\archive.zip" "M:\Ethical Hacking\3 SCANNING & ENUMERATION\*.*"
 ```
 
+## Dump SQL to website folder, create password protected zip via 7z and delete the SQL file
+
+```cmd
+"C:\Program Files\MySQL\MySQL Server 5.7\bin\mysqldump.exe" -u USER -pPASSWORD -h SERVERNAME DATABASENAME > "WEBSITELOCATION\DATABASE.sql"
+"C:\Program Files\7-Zip\7z" a -tzip "BACKUPLOCATION\%date%_.zip" WEBSITELOCATION\*.*" -r -mm=LZMA -mmt=on -mx9 -md=256m -mfb=256 -sccUTF-8 "-pPUTAPASSWORDHERE" -mem=AES256
+del "WEBSITELOCATION\DATABASE.sql"
+```
+
+```powershell
+Push-Location "C:\Program Files\MySQL\MySQL Server 5.7\bin\"
+.\mysqldump.exe -u USER -pPASSWORD -h SERVERNAME DATABASENAME > "WEBSITELOCATION\DATABASE.sql"
+$d = Get-Date -Format "dd-MM-yyyy-dddd"
+Compress-Archive -LiteralPath "WEBSITELOCATION\" -DestinationPath "BACKUPLOCATION\$d.zip" -CompressionLevel Optimal -Force
+Push-Location "WEBSITELOCATION"
+Remove-Item DATABASE.sql
+```
+
 ## Recursively Delete Folder and Its Subfolders
 
 ```powershell
