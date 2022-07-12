@@ -849,6 +849,14 @@ Get-VMReplication
 Start-Sleep -Seconds 5
 ```
 
+## Convert OVA to VHD via PowerShell (VirtualBox is required)
+
+```powershell
+cd C:\Program Files\Oracle\VirtualBox
+.\VBoxManage.exe clonemedium --format vhd "F:\VMs\wazuh-4.3.5-disk-1.vmdk" "F:\VMs\wazuh-4.3.5-disk-1.vhd"
+```
+![Convert From OVA to VHD](/img/OVAtoVHD.png)
+
 ## Office 365/Azure
 
 ## How to Set an Individual Password to Never Expire in Office 365
