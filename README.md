@@ -365,6 +365,13 @@ $subfolders = Get-ChildItem $source -Directory -Recurse
 Compress-Archive -Path $source -DestinationPath "$destination\archive.zip" -CompressionLevel Fastest -Force -Verbose
 ```
 
+You can also add the date and time
+
+```powershell
+$d = Get-Date -Format "dddd-MM-dd-yyyy"
+Compress-Archive -LiteralPath ".\0\" -DestinationPath ".\$d.zip" -CompressionLevel Optimal -Force -Verbose
+```
+
 ## Create .zip Archive via 7z cmd
 
 ```cmd
