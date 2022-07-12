@@ -747,6 +747,16 @@ $import.members.age
 5. Open all results as tabs in Notepadd++
 6. Find in files $_SERVER['SERVER_NAME'] to list the websites using the php version from point 4
 
+## Create SelfSigned Certificate to Digitally Sign PowerShell Scripts
+
+```powershell
+New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -Type CodeSigningCert -Subject "CN=Svet Kosev" -FriendlyName "Svet Kosev PowerShell" -NotAfter 12-07-2023
+$cert = New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -Type CodeSigningCert -Subject "CN=Svet Kosev" -FriendlyName "Svet Kosev PowerShell" -NotAfter 12-07-2023
+Move-Item -Path $cert.PSPath -Destination "Cert:\CurrentUser\Root"
+$CodeCert = Get-ChildItem -Path "Cert:\CurrentUser\Root" -CodeSigningCert
+Set-AuthenticodeSignature -FilePath ..\exportLog.ps1 -Certificate $CodeCert
+```
+
 ## Hyper-V
 
 ## Enable Hyper-V in Windows Home
