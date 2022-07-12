@@ -443,6 +443,12 @@ Get-EventLog -LogName Application -After ((get-date).AddDays(-30)) -EntryType Er
 Get-EventLog -LogName Security -After ((get-date).AddDays(-1)) | where {$_.EventID -eq 4771} |  ConvertTo-Csv | Out-File -FilePath .\Secyritylast1dayID4771.csv -Force
 ```
 
+## Export SysMon Event log as .xml
+
+```cmd
+WEVTUtil query-events "Microsoft-Windows-Sysmon/Operational" /format:xml /e:sysmonview > c:/sysmon/sysmoneventlog.xml
+```
+
 ## Check for all disabled AD users
 
 ```powershell
