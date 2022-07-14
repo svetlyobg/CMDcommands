@@ -484,9 +484,17 @@ Get-Mailbox -ResultSize Unlimited | Get-MailboxStatistics | Sort-Object TotalIte
 
 > Get-MobileDeviceStatistics -Mailbox svet@example.com | Select -Property LastSuccessSync, LastSyncAttemptTime, DeviceUserAgent, DeviceModel, DeviceFriendlyName, DeviceOS ,Guid | Convertto-Csv | Out-File svet-devices.csv
 
-## Get User's Group Membership
+## Get User's Group Membership and Shared Mailbox Statistics
 
+```powershell
 Get-ADPrincipalGroupMembership Svet | Select Name
+
+Get-ADUser Svet -Properties Memberof | Select -ExpandProperty memberOf
+
+Get-Mailbox -RecipientTypeDetails SharedMailbox -ResultSize:Unlimited | Select-Object Identity,Alias,DisplayName | Sort DisplayName
+
+```
+
 
 ## Y2K22 Workaround - Disable-AntimalwareScanning
 
