@@ -431,6 +431,19 @@ Invoke-Expression -Command ('icacls $folderPath $inhertance $grant "${user}${per
 
 # Active Directory
 
+## Offline Domain Join
+
+Needs CMD as Administrator on Both Machines. On the DC type:
+
+```cmd
+djoin.exe /provision /domain "EXAMPLE.LOCAL" /machine "CLIENTPCNAME" /savefile C:\join.txt
+```
+Copy Over the File to the Client's Machine. In CMD type:
+
+```cmd
+djoin.exe /requestodj /loadfile C:\join.txt /windowspath %systemroot% /localos
+```
+
 ## Export Windows Custom Event Logs for the past 30 days
 
 ```powershell
