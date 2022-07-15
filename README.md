@@ -533,6 +533,12 @@ Get-Mailbox | Get-MailboxPermission -User Svet
 Get-Mailbox | Get-RecipientPermission -Trustee Svet
 ```
 
+(If you see the error <<The term 'Get-MailboxPermission' is not recognized as the name of a cmdlet>> please add the snapin):
+
+```powershell
+Add-PSSnapin Microsoft.Exchange.Management.PowerShell.SnapIn;
+```
+
 ## Y2K22 Workaround - Disable-AntimalwareScanning
 
 ```powershell
