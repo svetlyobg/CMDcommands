@@ -527,6 +527,12 @@ Get-Mailbox -RecipientTypeDetails UserMailbox,SharedMailbox -ResultSize Unlimite
 Get-Mailbox | Get-MailboxPermission -User Svet
 ```
 
+### List all mailboxes to which a user has Send As permissions
+
+```powershell
+Get-Mailbox | Get-RecipientPermission -Trustee Svet
+```
+
 ## Y2K22 Workaround - Disable-AntimalwareScanning
 
 ```powershell
