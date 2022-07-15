@@ -545,6 +545,12 @@ Add-PSSnapin Microsoft.Exchange.Management.PowerShell.SnapIn;
 Get-Mailbox -RecipientTypeDetails UserMailbox -ResultSize Unlimited | Get-RecipientPermission -Trustee Svet
 ```
 
+### List all mailboxes to which a particular security principal has Send on behalf of permissions
+
+```powershell
+Get-Mailbox | ? {$_.GrantSendOnBehalfTo -match "Svet"}
+``
+
 ## Y2K22 Workaround - Disable-AntimalwareScanning
 
 ```powershell
