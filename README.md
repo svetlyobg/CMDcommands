@@ -515,6 +515,12 @@ Get-Mailbox -RecipientTypeDetails SharedMailbox -ResultSize:Unlimited | Select-O
 Get-Mailbox | Get-MailboxPermission -User Svet
 ```
 
+### List all shared/user/room/whatever mailboxes to which particular user has Full Access permissions
+
+```powershell
+Get-Mailbox -RecipientTypeDetails UserMailbox,SharedMailbox -ResultSize Unlimited | Get-MailboxPermission -User Svet
+```
+
 ## Y2K22 Workaround - Disable-AntimalwareScanning
 
 ```powershell
