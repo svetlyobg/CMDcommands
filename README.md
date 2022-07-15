@@ -507,7 +507,13 @@ Get-ADUser Svet -Properties Memberof | Select -ExpandProperty memberOf
 Get-Mailbox -RecipientTypeDetails SharedMailbox -ResultSize:Unlimited | Select-Object Identity,Alias,DisplayName | Sort DisplayName
 
 ```
+## Exchange (Shared) Mailbox Permissions
 
+### List all mailboxes to which a particular user has Full Access permissions
+
+```powershell
+Get-Mailbox | Get-MailboxPermission -User Svet
+```
 
 ## Y2K22 Workaround - Disable-AntimalwareScanning
 
