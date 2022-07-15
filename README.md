@@ -557,6 +557,12 @@ Get-Mailbox | ? {$_.GrantSendOnBehalfTo -match "Svet"}
 Get-Mailbox -RecipientTypeDetails SharedMailbox -ResultSize Unlimited | ? { (Get-MailboxPermission $_.UserPrincipalName | ? {$_.User -ne "NT AUTHORITY\SELF"}).Count -eq 0 }
 ```
 
+### List all mailboxes without any Send on behalf of permissions
+
+```powershell
+Get-Mailbox -ResultSize Unlimited -Filter {GrantSendOnBehalfTo -eq $null}
+```
+
 ## Y2K22 Workaround - Disable-AntimalwareScanning
 
 ```powershell
