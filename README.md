@@ -539,6 +539,12 @@ Get-Mailbox | Get-RecipientPermission -Trustee Svet
 Add-PSSnapin Microsoft.Exchange.Management.PowerShell.SnapIn;
 ```
 
+### List all user mailboxes to which members of a particular security group have Send As access
+
+```powershell
+Get-Mailbox -RecipientTypeDetails UserMailbox -ResultSize Unlimited | Get-RecipientPermission -Trustee Svet
+```
+
 ## Y2K22 Workaround - Disable-AntimalwareScanning
 
 ```powershell
