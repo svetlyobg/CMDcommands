@@ -549,7 +549,13 @@ Get-Mailbox -RecipientTypeDetails UserMailbox -ResultSize Unlimited | Get-Recipi
 
 ```powershell
 Get-Mailbox | ? {$_.GrantSendOnBehalfTo -match "Svet"}
-``
+```
+
+### List all (shared) mailboxes without any Full Access permissions other than self
+
+```powershell
+Get-Mailbox -RecipientTypeDetails SharedMailbox -ResultSize Unlimited | ? { (Get-MailboxPermission $_.UserPrincipalName | ? {$_.User -ne "NT AUTHORITY\SELF"}).Count -eq 0 }
+```
 
 ## Y2K22 Workaround - Disable-AntimalwareScanning
 
