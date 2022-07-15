@@ -521,6 +521,12 @@ Get-Mailbox | Get-MailboxPermission -User Svet
 Get-Mailbox -RecipientTypeDetails UserMailbox,SharedMailbox -ResultSize Unlimited | Get-MailboxPermission -User Svet
 ```
 
+### List all mailboxes to which members of a particular security group have access
+
+```powershell
+Get-Mailbox | Get-MailboxPermission -User Svet
+```
+
 ## Y2K22 Workaround - Disable-AntimalwareScanning
 
 ```powershell
