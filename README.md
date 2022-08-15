@@ -246,6 +246,12 @@ verifier.exe /standard /all
 
 Windows logo key + R,type ```shell:startup```, then select OK. This opens the Startup folder. Copy and paste the shortcut to the app from the file location to the Startup folder.
 
+## Disable Outlook Desktop Search
+
+```cmd
+rem reg add "HKLM\Software\Policies\Microsoft\Windows" /v PreventIndexingOutlook /t REG_DWORD /d 1 /f
+```
+
 ## Delete Files With Specific Content
 
 ```powershell
