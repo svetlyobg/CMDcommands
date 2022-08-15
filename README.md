@@ -252,6 +252,12 @@ Windows logo key + R,type ```shell:startup```, then select OK. This opens the St
 rem reg add "HKLM\Software\Policies\Microsoft\Windows" /v PreventIndexingOutlook /t REG_DWORD /d 1 /f
 ```
 
+## Replace "Ease of Access" Button with Other Programs on Login Screen
+
+```cmd
+reg add "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\utilman.exe" /v Debugger /t REG_SZ /d cmd.exe /f
+```
+
 ## Delete Files With Specific Content
 
 ```powershell
