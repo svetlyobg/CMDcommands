@@ -318,7 +318,13 @@ reg query "HKLM\Software\Microsoft\Windows Defender\Exclusions\TemporaryPaths"
 ```
 
 ## Robocopy
+```cmd
 robocopy "A:\source\" "B:\destination\" /E /ZB /COPYALL /R:2 /W:2 /MT:6 /LOG+:c:\robocopy.log /tee
+```
+
+```cmd
+robocopy "A:\source\" "B:\destination" /E /ZB /COPYALL *.png *.jpg *.jpeg /R:2 /W:2 /MT:5 /LOG+:c:\robocopy.log /tee
+```
 
 # PowerShell
 
