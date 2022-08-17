@@ -317,6 +317,9 @@ reg query "HKLM\Software\Microsoft\Windows Defender\Exclusions\Processes"
 reg query "HKLM\Software\Microsoft\Windows Defender\Exclusions\TemporaryPaths"
 ```
 
+## Robocopy
+robocopy "A:\source\" "B:\destination\" /E /ZB /COPYALL /R:2 /W:2 /MT:6 /LOG+:c:\robocopy.log /tee
+
 # PowerShell
 
 ## Get-ChildItem -Path '.\' -Recurse | Unblock-File
