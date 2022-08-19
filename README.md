@@ -987,6 +987,14 @@ net localgroup administrators AzureAD\SvetLyo /add
 
 # Other
 
+## RegEx
+
+Delete obsolete text between brakets - 74.34 KB (76,120 bytes) to 74.34 KB
+
+```regex
+\s\((.*)\)
+```
+
 ## recycle bin path in Windows 10
 C:\$Recycle.Bin
 
