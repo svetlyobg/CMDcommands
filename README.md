@@ -326,6 +326,15 @@ robocopy "A:\source\" "B:\destination\" /E /ZB /COPYALL /R:2 /W:2 /MT:6 /LOG+:c:
 robocopy "A:\source\" "B:\destination" /E /ZB /COPYALL *.png *.jpg *.jpeg /R:2 /W:2 /MT:5 /LOG+:c:\robocopy.log /tee
 ```
 
+## Wireshark CMD (tshark)
+
+```cmd
+"C:\Program Files\Wireshark\Wireshark.exe"
+"C:\Program Files\Wireshark\Wireshark.exe" -D - interfaces
+"C:\Program Files\Wireshark\tshark.exe" -i 6 -w "D:\wirtest.pcapng"
+"C:\Program Files\Wireshark\tshark.exe" -w "D:\wirtest.pcapng"
+```
+
 # PowerShell
 
 ## Get-ChildItem -Path '.\' -Recurse | Unblock-File
