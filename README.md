@@ -504,6 +504,14 @@ $limit = (Get-Date).AddDays(-14)
 Get-ChildItem -Path . -Recurse -Force | Where-Object { !$_.PSIsContainer -and $_.CreationTime -lt $limit } 
 ```
 
+## Recursively get files created in the past 7 days with the .dmp extention
+
+```powershell
+$limit = (Get-Date).AddDays(-7)
+
+Get-ChildItem -Path . -Filter *.dmp -Recurse -ErrorAction SilentlyContinue -Force | Where-Object { !$_.PSIsContainer -and $_.CreationTime -gt $limit } 
+```
+
 
 # Active Directory
 
