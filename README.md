@@ -496,6 +496,14 @@ $inhertance = "/inheritance:e"
 Invoke-Expression -Command ('icacls $folderPath $inhertance $grant "${user}${permission}"')
 ```
 
+## Get files created in the past 14 days
+
+```powershell
+$limit = (Get-Date).AddDays(-14)
+
+Get-ChildItem -Path . -Recurse -Force | Where-Object { !$_.PSIsContainer -and $_.CreationTime -lt $limit } 
+```
+
 
 # Active Directory
 
