@@ -335,6 +335,38 @@ robocopy "A:\source\" "B:\destination" /E /ZB /COPYALL *.png *.jpg *.jpeg /R:2 /
 "C:\Program Files\Wireshark\tshark.exe" -w "D:\wirtest.pcapng"
 ```
 
+## Netmon CMD
+
+```cmd
+https://www.microsoft.com/en-us/download/4865
+
+nmcap /usage
+
+nmcap /displaynetworks
+
+nmcap /network 2  /capture /captureProcesses /StopWhen /TimeAfter 1440 min /file "D:\db.cap":102400M
+
+nmcap /network *  /capture /captureProcesses /StopWhen /TimeAfter 1440 min /file "D:\db.cap"
+
+nmcap /network *  /capture /captureProcesses /StopWhen /TimeAfter 1440 min /file "M:\db.cap"
+
+nmcap /network *  /capture /captureProcesses /StopWhen /TimeAfter 1440 min /file "M:M:\wireshark1\netmon\wh1.cap"
+
+nmcap /network *  /capture /captureProcesses /StopWhen /TimeAfter 1440 min /file "M:\wh2.cap"
+
+nmcap /network *  /capture /captureProcesses /StopWhen /TimeAfter 1440 min /file "M:\db.cap"
+
+"C:\Program Files\Microsoft Network Monitor 3\nmcap.exe" /usage
+
+"C:\Program Files\Microsoft Network Monitor 3\nmcap.exe" /network *  /capture /captureProcesses /StopWhen /TimeAfter 1440 min /file "M:\wireshark1\netmon\wh1.cap"
+
+"C:\Program Files\Microsoft Network Monitor 3\nmcap.exe" /network *  /capture /captureProcesses /StopWhen /TimeAfter 1440 min /file "M:\wireshark1\netmon\wh1.cap"
+
+"C:\Program Files\Microsoft Network Monitor 3\nmcap.exe" /network *  /capture /captureProcesses /StopWhen /TimeAfter 1440 min /file "M:\wireshark2\netmon\wh2.cap"
+
+"C:\Program Files\Microsoft Network Monitor 3\nmcap.exe" /network *  /capture /captureProcesses /StopWhen /TimeAfter 1440 min /file "M:\netmon\db.cap"
+```
+
 # PowerShell
 
 ## Get-ChildItem -Path '.\' -Recurse | Unblock-File
