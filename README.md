@@ -847,6 +847,12 @@ $import.members.age
 5. Open all results as tabs in Notepadd++
 6. Find in files $_SERVER['SERVER_NAME'] to list the websites using the php version from point 4
 
+## Export website log without code 200
+
+```bash
+grep -v "200" wh2u_ex220910_x.log > wh2no200.log
+```
+
 ## Create SelfSigned Certificate to Digitally Sign PowerShell Scripts
 
 ```powershell
