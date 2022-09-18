@@ -334,11 +334,15 @@ robocopy "A:\source\" "B:\destination" /E /ZB /COPYALL *.png *.jpg *.jpeg /R:2 /
 
 ## Wireshark CMD (tshark)
 
+add wireshark to your path environment
+C:\Program Files\Wireshark
+
 ```cmd
 "C:\Program Files\Wireshark\Wireshark.exe"
 "C:\Program Files\Wireshark\Wireshark.exe" -D - interfaces
 "C:\Program Files\Wireshark\tshark.exe" -i 6 -w "D:\wirtest.pcapng"
 "C:\Program Files\Wireshark\tshark.exe" -w "D:\wirtest.pcapng"
+tshark.exe -i 6 -b duration:1800 -w "D:\wirtest.pcapng"
 ```
 
 ## Netmon CMD
