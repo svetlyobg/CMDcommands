@@ -501,7 +501,7 @@ Invoke-Expression -Command ('icacls $folderPath $inhertance $grant "${user}${per
 ```powershell
 $limit = (Get-Date).AddDays(-14)
 
-Get-ChildItem -Path . -Recurse -Force | Where-Object { !$_.PSIsContainer -and $_.CreationTime -lt $limit } 
+Get-ChildItem -Path . -Recurse -Force | Where-Object { !$_.PSIsContainer -and $_.CreationTime -lt $limit }
 ```
 
 ## Recursively get files created in the past 7 days with the .dmp extention
@@ -509,7 +509,13 @@ Get-ChildItem -Path . -Recurse -Force | Where-Object { !$_.PSIsContainer -and $_
 ```powershell
 $limit = (Get-Date).AddDays(-7)
 
-Get-ChildItem -Path . -Filter *.dmp -Recurse -ErrorAction SilentlyContinue -Force | Where-Object { !$_.PSIsContainer -and $_.CreationTime -gt $limit } 
+Get-ChildItem -Path . -Filter *.dmp -Recurse -ErrorAction SilentlyContinue -Force | Where-Object { !$_.PSIsContainer -and $_.CreationTime -gt $limit }
+```
+
+and export the results
+
+```powershell
+ | ConvertTo-Csv | Out-File "C:\logs7.csv"
 ```
 
 
