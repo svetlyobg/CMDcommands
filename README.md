@@ -41,6 +41,12 @@ Get mac addresses
 ## ping *hostname or IP address*
 Send packets to that address
 
+## ping capture with time and date
+
+```cmd
+ping.exe -t google.com | ForEach {"{0} - {1} " -f (Get-Date), $_} >> C:\temp\pinggoogle.txt
+```
+
 ## ping -a *IP address*
 Send packets to that address and returns the hostname
 
