@@ -343,6 +343,7 @@ C:\Program Files\Wireshark
 "C:\Program Files\Wireshark\tshark.exe" -i 6 -w "D:\wirtest.pcapng"
 "C:\Program Files\Wireshark\tshark.exe" -w "D:\wirtest.pcapng"
 tshark.exe -i 6 -b duration:1800 -w "D:\wirtest.pcapng"
+dumpcap.exe -i 6 -w "D:\wirtest.pcapng" -b filesize:500000 -b files:1000
 ```
 
 ## Netmon CMD
