@@ -523,6 +523,12 @@ and export the results
  | ConvertTo-Csv | Out-File "C:\logs7.csv"
 ```
 
+## Recursively delete all files and folders within the current directory
+
+```powershell
+Get-ChildItem . -Recurse | Remove-Item -Recurse -Force -Verbose
+```
+
 
 # Active Directory
 
