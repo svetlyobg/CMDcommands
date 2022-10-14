@@ -678,6 +678,17 @@ Restart-Service MSExchangeTransport -Verbose
 Get-Service *exchange* | Where-Object {$_.Status -eq "Running"}
 ```
 
+## Enable sent as/ sent on behalf of a shared mailbox
+
+```powershell
+Get-Mailbox -Identity ChikiRikiMailbox
+
+Set-Mailbox ChikiRikiMailbox -MessageCopyForSentAsEnabled $True
+
+set-mailbox -Identity ChikiRikiMailbox -MessageCopyForSentAsEnabled $False
+
+```
+
 # IIS Web Server
 
 ## Remove Server Response Header
