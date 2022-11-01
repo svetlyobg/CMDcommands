@@ -380,6 +380,12 @@ nmcap /network *  /capture /captureProcesses /StopWhen /TimeAfter 1440 min /file
 
 # PowerShell
 
+## Check Bitlocker Status
+
+```powershell
+manage-bde -status c:
+```
+
 ## Get-ChildItem -Path '.\' -Recurse | Unblock-File
 Unblocks blocked file in the current directory and it's childrens
 
