@@ -900,6 +900,7 @@ Start-Sleep -Seconds 5
 
 ```powershell
 Get-Website | Select-Object -ExpandProperty Bindings | ft
+# Get-Website | Select-Object -ExpandProperty Bindings | Select-Object Collection
 $ws = Get-Website
 $ws.PhysicalPath
 $ws.PhysicalPath | ConvertTo-Html | Out-File C:\Users\$env:UserName\Desktop\path.html
