@@ -901,6 +901,17 @@ Start-Sleep -Seconds 5
 ```powershell
 Get-Website | Select-Object -ExpandProperty Bindings | ft
 # Get-Website | Select-Object -ExpandProperty Bindings | Select-Object Collection
+#BEGIN - manual
+#
+Get-Website | Select-Object -Property Name  | Out-File test444.log
+Write-Host -Separator `n
+Write-Host -Separator `n
+Get-Website | Select-Object -ExpandProperty physicalPath | Add-Content test444.log
+Write-Host -Separator `n
+Write-Host -Separator `n
+Get-Website | Select-Object -ExpandProperty Bindings | Select-Object Collection | clip
+#Paste the clipboard in the .log file
+#END - manual
 $ws = Get-Website
 $ws.PhysicalPath
 $ws.PhysicalPath | ConvertTo-Html | Out-File C:\Users\$env:UserName\Desktop\path.html
