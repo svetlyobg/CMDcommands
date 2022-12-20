@@ -1089,6 +1089,12 @@ Set-MsolUser -UserPrincipalName user@example.com -PasswordNeverExpires $true
 
 ```powershell
 Get-ChildItem .\ -recurse | Sort-Object length -descending | select-object -first 32 | ft name,length -wrap –auto
+
+D:\DFSRStaging\{{FOLDERNAME}}\Staging
+
+(Get-ChildItem -Recurse | Sort-Object -Descending -Property Length | Select-Object -First 32 Name, Length | Measure-Object -Property Length -Sum).SUM /1MB
+
+(Get-ChildItem -Recurse | Sort-Object -Descending -Property Length | Select-Object -First 32 Name, Length | Measure-Object -Property Length -Sum).SUM /1GB
 ```
 
 ## Add Office 365 User to the Administrators Group
