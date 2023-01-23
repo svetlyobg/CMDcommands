@@ -258,6 +258,12 @@ Windows logo key + R,type ```shell:startup```, then select OK. This opens the St
 rem reg add "HKLM\Software\Policies\Microsoft\Windows" /v PreventIndexingOutlook /t REG_DWORD /d 1 /f
 ```
 
+## How to move Outlook navigation toolbar from side to bottom (2022)
+
+```cmd
+reg add "HKCU\Software\Microsoft\Office\16.0\Common\ExperimentsEcs\Overrides" /v Microsoft.Office.Outlook.Hub.HubBar /t REG_SZ /d False /f
+```
+
 ## Replace "Ease of Access" Button with Other Programs on Login Screen
 
 ```cmd
