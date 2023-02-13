@@ -423,6 +423,15 @@ New-NetFirewallRule -DisplayName 'RDPPORTLatest' -Profile 'Public' -Direction In
 Test-NetConnection -ComputerName **HOSTNAME** -Port **PORTNUMBER**
 ```
 
+## Check for multiple open ports
+
+```powershell
+$Ports = @(25, 143, 465, 587, 993, 2525)
+foreach ($Port in $Ports) {
+    Test-NetConnection -ComputerName 10.0.0.59 -Port $Port
+}
+```
+
 ## List Installed Software Programs via Powershell
 
 ```powershell
