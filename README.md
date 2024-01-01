@@ -1162,3 +1162,25 @@ run this in cmd.exe as an admin:
 ```powershell
 get-netfirewallrule | select-object name, group, action, enabled, profile | export-csv C:\firewallrulesexported.csv
 ```
+
+## How to Shut Down or Restart a Remote Computer
+
+[Source](https://www.partitionwizard.com/partitionmanager/restart-a-remote-computer.html)
+
+Turning off
+
+```cmd
+shutdown /s /m \RemoteComputerName
+```
+Rebooting
+
+```cmd
+shutdown /r /m \RemoteComputerName
+```
+
+Restart a remote computer with a custom message:
+
+```cmd
+Shutdown /m \pc2  /c "The IT department has initiated a remote restart on your computer"
+```
+
