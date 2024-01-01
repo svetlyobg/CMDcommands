@@ -1184,3 +1184,14 @@ Restart a remote computer with a custom message:
 Shutdown /m \pc2  /c "The IT department has initiated a remote restart on your computer"
 ```
 
+## How to Force Logoff a Windows User from the Command Line
+
+Check the user/session ID
+```cmd
+quser
+```
+Terminate the connection
+
+```cmd
+logoff User_Session_ID
+```
