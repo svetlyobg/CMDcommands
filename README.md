@@ -1186,6 +1186,10 @@ Shutdown /m \pc2  /c "The IT department has initiated a remote restart on your c
 
 ## How to Force Logoff a Windows User from the Command Line
 
+```powershell
+Enter-PSSession -ComputerName <<PCNAME>> -Credential <<DOMAIN\USERNAME>>
+```
+
 Check the user/session ID
 ```cmd
 quser
