@@ -387,6 +387,8 @@ nmcap /network *  /capture /captureProcesses /StopWhen /TimeAfter 1440 min /file
 ## Maintenance Diagnostic
 msdt.exe -id MaintenanceDiagnostic
 
+## Windows Update Diagnostic
+msdt.exe /id WindowsUpdateDiagnostic
 
 # PowerShell
 
