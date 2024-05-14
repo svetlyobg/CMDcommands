@@ -384,6 +384,10 @@ nmcap /network *  /capture /captureProcesses /StopWhen /TimeAfter 1440 min /file
 "C:\Program Files\Microsoft Network Monitor 3\nmcap.exe" /network *  /capture /captureProcesses /StopWhen /TimeAfter 1440 min /file "M:\netmon\db.cap"
 ```
 
+## Maintenance Diagnostic
+msdt.exe -id MaintenanceDiagnostic
+
+
 # PowerShell
 
 ## Check Bitlocker Status
